@@ -9,4 +9,4 @@ To install the package simply download the folder "Package_test". Open the proje
 
 
 ## Citation
-If you use the package, pelase cite X
+If you use the package, please cite X
