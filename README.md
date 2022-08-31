@@ -5,5 +5,8 @@ X is an R package to predict cell lineages (cells with a common ancestor) from s
 ## Installation
 To install the package simply download the folder "Package_test". Open the project "LineAGED.Rproj" in RStudio. Then click in the RStudio menu on "Build" and then "Install and Restart". You can then close the window with the project and use the library in R.
 
+## Getting started
+
+
 ## Citation
 If you use the package, pelase cite X
