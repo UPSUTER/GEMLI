@@ -12,4 +12,4 @@ To install the package simply download the folder "Package_test". Open the proje
 If you use the package, please cite X
 
 ## TEST: Editing test by Marcel
-https://github.com/UPSUTER/Memory/blob/main/network_predicted_lineage.png?raw=true
+![alt text](https://github.com/UPSUTER/Memory/blob/main/network_predicted_lineage.png)
