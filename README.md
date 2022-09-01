@@ -13,5 +13,5 @@ If you use the package, please cite X
 
 ## TEST: Editing test by Marcel
 <p align="center">
-  <img width="500" height="500" src="[http://www.fillmurray.com/460/300](https://github.com/UPSUTER/Memory/blob/main/Network_for_GitHub.png)">
+  <img width="500" height="500" src="http://www.fillmurray.com/460/300](https://github.com/UPSUTER/Memory/blob/main/Network_for_GitHub.png">
 </p>
