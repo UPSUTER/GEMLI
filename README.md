@@ -12,4 +12,6 @@ To install the package simply download the folder "Package_test". Open the proje
 If you use the package, please cite X
 
 ## TEST: Editing test by Marcel
-![alt text](https://github.com/UPSUTER/Memory/blob/main/Network_for_GitHub.png)
+<p align="center">
+  <img width="500" height="500" src="[http://www.fillmurray.com/460/300](https://github.com/UPSUTER/Memory/blob/main/Network_for_GitHub.png)">
+</p>
