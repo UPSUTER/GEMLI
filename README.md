@@ -37,8 +37,8 @@ Test predicted lineages against lineages from cell barcoding.
 The `test_lineage_prediction` function takes the output of `predict_lineages` as input. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. 
 
 ```
-> testing_results = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
-> testing_results
+> lineage_testing = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
+> lineage_testing
      TP    FP  precision sensitivity
 0   274 24062 0.01125904   1.0000000
 10  104   128 0.44827586   0.3795620
