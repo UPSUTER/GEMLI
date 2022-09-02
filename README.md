@@ -25,12 +25,13 @@ The `predict_lineages` function takes a quality-controlled and normalized single
 
 ```
 > lineage_predictions_matrix = predict_lineages(data_matrix)
-> lineage_predictions_matrix[1:4,15:19]
+> lineage_predictions_matrix[1:5,15:19]
                    AGAGAATAGGTCATAA-1 AGAGCAGCAAGTGATA-1 AGATGCTTCAAAGACA-1 AGGATCTGTATCGTTG-1 AGGGAGTAGACGATAT-1
 AAACGAACAGGTGTGA-1                  0                  0                  0                  0                 14
 AAAGGTAGTTGCTTGA-1                 87                  0                  0                  0                  0
 AACCACAAGTTTGTCG-1                  0                  0                  0                  0                 39
 AAGCCATGTTCCACGG-1                  0                  0                  0                  0                  0
+AAGCGAGGTACGGCAA-1                  0                  0                  0                  0                  0
 ```
 ### Examine lineage prediction
 
