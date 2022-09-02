@@ -14,16 +14,28 @@ Identify marker genes are identified based on gene expression mean and variation
 The `identify_markers` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a vector of gene names or identifiers, depending on the input.
 
 ```
-markers = identify_markers(data_matrix)
-markers
+> markers = identify_markers(data_matrix)
+> markers
 [1] "ENSMUSG00000025915" "ENSMUSG00000048960" "ENSMUSG00000043716" ...
 ```
 
 ### Perform lineage prediction
+Identify cell lineages through repeated iterative clustering (this may take 2-3min).
+The `predict_lineages` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage. 
+
+```
+> lineage_predictions_matrix = predict_lineages(data_matrix)
+> lineage_predictions_matrix[1:5,15:20]
+                   AGAGAATAGGTCATAA-1 AGAGCAGCAAGTGATA-1 AGATGCTTCAAAGACA-1 AGGATCTGTATCGTTG-1 AGGGAGTAGACGATAT-1 AGGGCCTAGTAAACTG-1
+AAACGAACAGGTGTGA-1                  0                  0                  0                  0                 14                  0
+AAAGGTAGTTGCTTGA-1                 87                  0                  0                  0                  0                  0
+AACCACAAGTTTGTCG-1                  0                  0                  0                  0                 39                  0
+AAGCCATGTTCCACGG-1                  0                  0                  0                  0                  0                  0
+AAGCGAGGTACGGCAA-1                  0                  0                  0                  0                  0                  0
+```
+### Examine lineage prediction
 
 ### Refine lineage prediction
-
-### Examine lineage prediction
 
 ### Call real lineage markers
 
