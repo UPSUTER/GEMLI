@@ -13,7 +13,8 @@ To install the package simply download the folder "Package_test". Open the proje
 Identify marker genes are identified based on gene expression mean and variation.
 The `identify_markers` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a vector of gene names or identifiers, depending on the input.
 > `markers = identify_markers(data_matrix)`
-
+> `markers`
+> `  [1] "ENSMUSG00000025915" "ENSMUSG00000048960" "ENSMUSG00000043716"` ...
 ### Perform lineage prediction
 
 ### Refine lineage prediction
