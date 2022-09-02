@@ -7,17 +7,17 @@ To install the package simply download the folder "Package_test". Open the proje
 
 ## Getting started
 
-# Load and explore example data
+### Load and explore example data
 
-# Call potential lineage markers
+### Call potential lineage markers
 
-# Perform lineage prediction
+### Perform lineage prediction
 
-# Refine lineage prediction
+### Refine lineage prediction
 
-# Examine lineage prediction
+### Examine lineage prediction
 
-# Call real lineage markers
+### Call real lineage markers
 
 ## Citation
 If you use the package, please cite X
