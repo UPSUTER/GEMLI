@@ -7,16 +7,14 @@ To install the package simply download the folder "Package_test". Open the proje
 
 ## Getting started
 
-### Load and explore example data
-
 ### Call potential lineage markers
 Identify marker genes are identified based on gene expression mean and variation.
 The `identify_markers` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a vector of gene names or identifiers, depending on the input.
 
 ```
 > markers = identify_markers(data_matrix)
-> markers
-[1] "ENSMUSG00000025915" "ENSMUSG00000048960" "ENSMUSG00000043716" ...
+> markers[1:3]
+[1] "ENSMUSG00000025915" "ENSMUSG00000048960" "ENSMUSG00000043716"
 ```
 
 ### Perform lineage prediction
@@ -33,10 +31,27 @@ AACCACAAGTTTGTCG-1                  0                  0                  0     
 AAGCCATGTTCCACGG-1                  0                  0                  0                  0                  0
 AAGCGAGGTACGGCAA-1                  0                  0                  0                  0                  0
 ```
-### Examine lineage prediction
 
-### Refine lineage prediction
+### Test lineage prediction
+Test predicted lineages against lineages from cell barcoding.
+The `test_lineage_prediction` function takes the output of `predict_lineages` as input. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. 
 
+```
+> testing_results = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
+> testing_results
+     TP    FP  precision sensitivity
+0   274 24062 0.01125904   1.0000000
+10  104   128 0.44827586   0.3795620
+20   90    82 0.52325581   0.3284672
+30   84    56 0.60000000   0.3065693
+40   80    36 0.68965517   0.2919708
+50   68    22 0.75555556   0.2481752
+60   64    14 0.82051282   0.2335766
+70   62    10 0.86111111   0.2262774
+80   58     2 0.96666667   0.2116788
+90   46     0 1.00000000   0.1678832
+100  34     0 1.00000000   0.1240876
+```
 ### Call real lineage markers
 
 ## Citation
