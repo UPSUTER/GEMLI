@@ -52,6 +52,13 @@ The `test_lineage_prediction` function takes the output of `predict_lineages` as
 90   46     0 1.00000000   0.1678832
 100  34     0 1.00000000   0.1240876
 ```
+
+This results can be visualized using `XXX`.
+
+```
+visualize_test_result(lineage_testing)
+```
+
 ### Call real lineage markers
 
 ## Citation
