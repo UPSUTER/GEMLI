@@ -34,7 +34,7 @@ AAGCGAGGTACGGCAA-1                  0                  0                  0     
 
 ### Test lineage prediction
 Test predicted lineages against lineages from cell barcoding.
-The `test_lineage_prediction` function takes the output of `predict_lineages` as input. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. 
+The `test_lineage_prediction` function takes the output of `predict_lineages` as well as a the file 'lineage_dict_bc' as input. Lineage_dict_bc is a vector of lineage numbers named according to cell barcode. The function outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. 
 
 ```
 > lineage_testing = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
