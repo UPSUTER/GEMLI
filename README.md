@@ -5,7 +5,7 @@ GEMLI is an R package to predict cell lineages (cells with a common ancestor) fr
 The approach is based on findings of Phillips et al. 2019 where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
 
 <p align="center">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMIL_GitHub_testing.png">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/Scheme_Phillips.png">
 </p>
 
 ## Installation
