@@ -56,12 +56,12 @@ AAGCGAGGTACGGCAA-1                  0                  0                  0     
 
 ### Test lineage prediction
 Test predicted lineages against lineages from cell barcoding.
-The `test_lineage_prediction` function takes the output of `predict_lineages` as well as a the file 'lineage_dict_bc' as input. Lineage_dict_bc is a vector of lineage numbers named according to cell barcode. The function outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. 
+The `test_lineage_prediction` function takes the output of `predict_lineages` as well as a the file 'lineage_dict_bc' as input. Lineage_dict_bc is a vector of lineage numbers named according to cell barcode. The function outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. The output can be visualized by setting `plot_results` to `true`/`T`.
 
 ```
-> lineage_testing = test_lineage_prediction(GEMLI_items)
+> GEMLI_items = test_lineages(GEMLI_items)
 >
-> lineage_testing
+> GEMLI_items$testing_results
      TP    FP  precision sensitivity
 0   274 24062 0.01125904   1.0000000
 10  104   128 0.44827586   0.3795620
@@ -75,7 +75,7 @@ The `test_lineage_prediction` function takes the output of `predict_lineages` as
 90   46     0 1.00000000   0.1678832
 100  34     0 1.00000000   0.1240876
 >
-> lineage_testing = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
+> test_lineages(GEMLI_items, plot_results=T)
 ```
 
 <p align="center">
