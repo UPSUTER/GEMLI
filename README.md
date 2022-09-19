@@ -18,7 +18,7 @@ First we load the example data.
 ```
 
 ### Create a GEMLI items list
-GEMLI's inputs and outputs are stored in a list of objects with predifined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix (rows = genes/features, colums = cells/samples). In this example we also provide a ground truth for lineages stemming from a barcoding experiment (values = barcode ID, colums = cell IDs).
+GEMLI's inputs and outputs are stored in a list of objects with predifined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix (rows = genes/features, colums = cells/samples). In this example we also provide a ground truth for lineages stemming from a barcoding experiment (values = barcode ID, names = cell IDs).
 
 ```
 > GEMLI_items = list()
@@ -104,6 +104,33 @@ If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `
   <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
   <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
 </p>
+
+### Extract lineage information
+Now we can extract the lineage information with the `prediction_to_lineage_information` function. Again we need to set a `cutoff` that defines which predictions we want to consider. The function outputs both a lineage table and a 'dictionary', a vector that has the lineage number as values and the cell IDs as names.
+
+```
+> GEMLI_items = prediction_to_lineage_information(GEMLI_items, cutoff=50)
+> GEMLI_items$predicted_lineage_table[1:5,]
+> GEMLI_items$predicted_lineages[1:5,]
+```
+
+### Visualize predictions as network
+We can also investigate our predctions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predcitions we lower precision.
+
+```
+> visualize_as_network(GEMLI_items, cutoff=90) # left image
+> visualize_as_network(GEMLI_items, cutoff=50) # right image
+```
+<p float="left">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
+</p>
+
+# Suggest trimming for lineages that are too big
+suggest_network_trimming_to_size(GEMLI_items, max_size=2, cutoff=50)
+
+# Trim lineages that are too big
+GEMLI_items_post_processed = trim_network_to_size(GEMLI_items, max_size=2, cutoff=50)
 
 ## Citation
 If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv.
