@@ -128,9 +128,9 @@ AAACGAACAGGTGTGA-1 AAAGGTAGTTGCTTGA-1 AACCACAAGTTTGTCG-1 AAGCCATGTTCCACGG-1 AAGC
 
 In some applications it may be useful to trim lineages that are too big. For instance if it is known that cells should have undergone only a certain number of divisions effectively limiting the lineage size or if you are only interested in sister cell pairs. Similarly, if you investigate large lineages you want to avoid lineages being merged due to few false predictions between otherwise well-interconnected lineages. The `suggest_network_trimming_to_size` function allows you to preview what a trimming to size would look like. It will again show the predicted lineages as networks but highlight all connections that would be trimmed given a certain size restriction (`max_size`). If you are happy with the suggested trimming you create new trimmed `GEMLI_items` list, in this example we called it `GEMLI_items_post_processed`. You can then again visualize the predictions to see how the changes have affected your predictions.
 ```
-> suggest_network_trimming_to_size(GEMLI_items, max_size=2, cutoff=50)
+> suggest_network_trimming_to_size(GEMLI_items, max_size=2, cutoff=50) # left image
 > GEMLI_items_post_processed = trim_network_to_size(GEMLI_items, max_size=2, cutoff=50)
-> visualize_as_network(GEMLI_items_post_processed, cutoff=50)
+> visualize_as_network(GEMLI_items_post_processed, cutoff=50) # right image
 ```
 <p float="left">
   <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT_ST.png">
