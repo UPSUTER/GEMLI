@@ -13,6 +13,23 @@ To install the package simply download the folder "Package_test". Open the proje
 
 ## Getting started
 
+### Load example data
+First we load the example data.
+
+```
+> load('GEMLI_example_data_matrix.RData')
+> load('GEMLI_example_barcode_information.RData')
+```
+
+### Create a GEMLI items list
+GEMLI's inputs and outputs are stored in a list of objects with predifined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix. In this example we also provide a ground truth for lineages stemming from a barcoding experiment.
+
+```
+> GEMLI_items = list()
+> GEMLI_items[['gene_expression']] = data_matrix
+> GEMLI_items[['barcodes']] = lineage_dict_bc
+```
+
 ### Call potential lineage markers
 Identify marker genes are identified based on gene expression mean and variation.
 The `identify_markers` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a vector of gene names or identifiers, depending on the input.
