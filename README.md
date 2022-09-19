@@ -4,10 +4,6 @@ GEMLI is an R package to predict cell lineages (cells with a common ancestor) fr
 
 The approach is based on findings of Phillips et al. 2019 where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
 
-<p align="center">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/Scheme_Phillips.png">
-</p>
-
 ## Installation
 To install the package simply download the folder "Package_test". Open the project "LineAGED.Rproj" in RStudio. Then click in the RStudio menu on "Build" and then "Install and Restart". You can then close the window with the project and use the library in R.
 
@@ -22,27 +18,18 @@ First we load the example data.
 ```
 
 ### Create a GEMLI items list
-GEMLI's inputs and outputs are stored in a list of objects with predifined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix. In this example we also provide a ground truth for lineages stemming from a barcoding experiment.
+GEMLI's inputs and outputs are stored in a list of objects with predifined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix (rows = genes/features, colums = cells/samples). In this example we also provide a ground truth for lineages stemming from a barcoding experiment (values = barcode ID, colums = cell IDs).
 
 ```
 > GEMLI_items = list()
 > GEMLI_items[['gene_expression']] = data_matrix
 > GEMLI_items[['barcodes']] = lineage_dict_bc
-```
-
-### Call potential lineage markers
-Identify marker genes are identified based on gene expression mean and variation.
-The `identify_markers` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a vector of gene names or identifiers, depending on the input.
-
-```
-> markers = identify_markers(data_matrix)
-> markers[1:3]
-[1] "ENSMUSG00000025915" "ENSMUSG00000048960" "ENSMUSG00000043716"
+> GEMLI_items[['gene_expression']][1:5,1:5]
+> GEMLI_items[['barcodes']][1:5]
 ```
 
 ### Perform lineage prediction
-Identify cell lineages through repeated iterative clustering (this may take 2-3min).
-The `predict_lineages` function takes a quality-controlled and normalized single-cell gene expression matrix (rows = genes/features, colums = cells/samples) as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage. 
+We can then identify cell lineages through repeated iterative clustering (this may take 2-3min). The `predict_lineages` function takes our GEMLI_items as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage. 
 
 ```
 > lineage_predictions_matrix = predict_lineages(data_matrix)
