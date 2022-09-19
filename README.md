@@ -43,7 +43,8 @@ CACAGATAGTGATGGC-1 TATCTTGGTACGGGAT-1 AAACGAACAGGTGTGA-1 AGAGAATAGGTCATAA-1 GAGT
 We can then identify cell lineages through repeated iterative clustering (this may take 2-3min). The `predict_lineages` function takes our GEMLI_items as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage. 
 
 ```
-> lineage_predictions_matrix = predict_lineages(data_matrix)
+> lineage_predictions_matrix = predict_lineages(GEMLI_items)
+>
 > lineage_predictions_matrix[1:5,15:19]
                    AGAGAATAGGTCATAA-1 AGAGCAGCAAGTGATA-1 AGATGCTTCAAAGACA-1 AGGATCTGTATCGTTG-1 AGGGAGTAGACGATAT-1
 AAACGAACAGGTGTGA-1                  0                  0                  0                  0                 14
@@ -58,7 +59,8 @@ Test predicted lineages against lineages from cell barcoding.
 The `test_lineage_prediction` function takes the output of `predict_lineages` as well as a the file 'lineage_dict_bc' as input. Lineage_dict_bc is a vector of lineage numbers named according to cell barcode. The function outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. 
 
 ```
-> lineage_testing = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
+> lineage_testing = test_lineage_prediction(GEMLI_items)
+>
 > lineage_testing
      TP    FP  precision sensitivity
 0   274 24062 0.01125904   1.0000000
@@ -72,12 +74,8 @@ The `test_lineage_prediction` function takes the output of `predict_lineages` as
 80   58     2 0.96666667   0.2116788
 90   46     0 1.00000000   0.1678832
 100  34     0 1.00000000   0.1240876
-```
-
-This results can be visualized using `XXX`.
-
-```
-visualize_test_result(lineage_testing)
+>
+> lineage_testing = test_lineage_prediction(lineage_predictions_matrix, lineage_dict_bc)
 ```
 
 <p align="center">
