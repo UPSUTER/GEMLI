@@ -59,12 +59,9 @@ This results can be visualized using `XXX`.
 visualize_test_result(lineage_testing)
 ```
 
-### Call real lineage markers
-
-## Citation
-If you use the package, please cite X
-
-## TEST: Editing test by Marcel
 <p align="center">
   <img width="500" height="500" src="https://github.com/UPSUTER/Memory/blob/main/Network_for_GitHub.png">
 </p>
+
+## Citation
+If you use the package, please cite X
