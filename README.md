@@ -7,7 +7,7 @@ The approach is based on findings of Phillips et al. 2019 where it was shown tha
 ## Installation
 To install the package simply download the folder "Package_test". Open the project "LineAGED.Rproj" in RStudio. Then click in the RStudio menu on "Build" and then "Install and Restart". You can then close the window with the project and use the library in R.
 
-## Getting started
+## Example 1: small lineages in mouse embryonic stem cells
 
 ### Load example data
 First we load the example data.
@@ -124,23 +124,19 @@ AAACGAACAGGTGTGA-1 AAAGGTAGTTGCTTGA-1 AACCACAAGTTTGTCG-1 AAGCCATGTTCCACGG-1 AAGC
                  1                  2                  3                  4                  5
 ```
 
-### Visualize predictions as network
-We can also investigate our predctions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predcitions we lower precision.
+### Trim lineages that are too big
+
+In some applications it may be useful to trim lineages that are too big. For instance if it is known that cells should have undergone only a certain number of divisions effectively limiting the lineage size or if you are only interested in sister cell pairs. Similarly, if you investigate large lineages you want to avoid lineages being merged due to few false predictions between otherwise well-interconnected lineages. The `suggest_network_trimming_to_size` function allows you to preview what a trimming to size would look like. It will again show the predicted lineages as networks but highlight all connections that would be trimmed given a certain size restriction (`max_size`).
 
 ```
-> visualize_as_network(GEMLI_items, cutoff=90) # left image
-> visualize_as_network(GEMLI_items, cutoff=50) # right image
+> suggest_network_trimming_to_size(GEMLI_items, max_size=2, cutoff=50)
+> GEMLI_items_post_processed = trim_network_to_size(GEMLI_items, max_size=2, cutoff=50)
+> visualize_as_network(GEMLI_items_post_processed, cutoff=50, ground_truth=T)
 ```
 <p float="left">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_ST.png">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_trim.png">
 </p>
-
-# Suggest trimming for lineages that are too big
-suggest_network_trimming_to_size(GEMLI_items, max_size=2, cutoff=50)
-
-# Trim lineages that are too big
-GEMLI_items_post_processed = trim_network_to_size(GEMLI_items, max_size=2, cutoff=50)
 
 ## Citation
 If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv.
