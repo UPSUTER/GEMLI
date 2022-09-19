@@ -24,8 +24,19 @@ GEMLI's inputs and outputs are stored in a list of objects with predifined names
 > GEMLI_items = list()
 > GEMLI_items[['gene_expression']] = data_matrix
 > GEMLI_items[['barcodes']] = lineage_dict_bc
-> GEMLI_items[['gene_expression']][1:5,1:5]
+>
+> GEMLI_items[['gene_expression']][9:14,1:5]
+                   AAACGAACAGGTGTGA-1 AAAGGTAGTTGCTTGA-1 AACCACAAGTTTGTCG-1 AAGCCATGTTCCACGG-1 AAGCGAGGTACGGCAA-1
+ENSMUSG00000033845          14.761746         12.9570026          13.240645          8.8596794          12.791617
+ENSMUSG00000025903           3.163231          1.2340002           4.878132          0.7383066           0.000000
+ENSMUSG00000033813           6.326463          5.5530011           4.181256          8.8596794           5.482122
+ENSMUSG00000002459           0.000000          0.0000000           0.000000          0.0000000           0.000000
+ENSMUSG00000085623           0.000000          0.0000000           0.000000          0.0000000           0.000000
+ENSMUSG00000033793           3.163231          0.6170001           1.393752          2.2149199           5.482122
+>
 > GEMLI_items[['barcodes']][1:5]
+CACAGATAGTGATGGC-1 TATCTTGGTACGGGAT-1 AAACGAACAGGTGTGA-1 AGAGAATAGGTCATAA-1 GAGTGAGTCCAGTACA-1
+                 2                  2                  2                  7                  7
 ```
 
 ### Perform lineage prediction
