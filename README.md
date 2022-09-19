@@ -1,6 +1,6 @@
-# Gene expression memory for lineage identification in scRNA-seq datasets
+# GEMLI: Gene expression memory for lineage identification
 
-X is an R package to predict cell lineages (cells with a common ancestor) from single cell RNA datasets and to call genes with a high gene expression memory on the predicted cell lineages. It is described in publicationX.
+GEMLI is an R package to predict cell lineages (cells with a common ancestor) from single cell RNA datasets (or any other type of single-cell gene expression data) and to call genes with a high gene expression memory on the predicted cell lineages. It is described in A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv.
 
 ## Installation
 To install the package simply download the folder "Package_test". Open the project "LineAGED.Rproj" in RStudio. Then click in the RStudio menu on "Build" and then "Install and Restart". You can then close the window with the project and use the library in R.
@@ -64,4 +64,4 @@ visualize_test_result(lineage_testing)
 </p>
 
 ## Citation
-If you use the package, please cite X
+If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv.
