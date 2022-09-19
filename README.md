@@ -55,8 +55,8 @@ AAGCGAGGTACGGCAA-1                  0                  0                  0     
 ```
 
 ### Test lineage prediction
-Test predicted lineages against lineages from cell barcoding.
-The `test_lineage_prediction` function takes the output of `predict_lineages` as well as a the file 'lineage_dict_bc' as input. Lineage_dict_bc is a vector of lineage numbers named according to cell barcode. The function outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. The output can be visualized by setting `plot_results` to `true`/`T`.
+Since we have barcoding data for this dataset we can test the predicted lineages against our ground truth.
+The `test_lineage_prediction` function again takes our `GEMLI_items` as input. It's important the a predcition as been run first with `predict_lineages`. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. The output can be visualized by setting `plot_results` to `true`/`T`.
 
 ```
 > GEMLI_items = test_lineages(GEMLI_items)
@@ -80,6 +80,25 @@ The `test_lineage_prediction` function takes the output of `predict_lineages` as
 
 <p align="center">
   <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMIL_GitHub_testing.png">
+</p>
+
+### Visualize predictions as network
+We can also investigate our predctions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predcitions we lower precision.
+
+```
+> visualize_as_network(GEMLI_items, cutoff=90)
+```
+
+<p align="center">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
+</p>
+
+```
+> visualize_as_network(GEMLI_items, cutoff=50)
+```
+
+<p align="center">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
 </p>
 
 ## Citation
