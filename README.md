@@ -60,7 +60,7 @@ visualize_test_result(lineage_testing)
 ```
 
 <p align="center">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/Example/GEMIL_GitHub_testing.png">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMIL_GitHub_testing.png">
 </p>
 
 ## Citation
