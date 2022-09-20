@@ -18,7 +18,7 @@ First we load the example data.
 ```
 
 ### Create a GEMLI items list
-GEMLI's inputs and outputs are stored in a list of objects with predifined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix (rows = genes/features, colums = cells/samples). In this example we also provide a ground truth for lineages stemming from a barcoding experiment (values = barcode ID, names = cell IDs).
+GEMLI's inputs and outputs are stored in a list of objects with predefined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix (rows = genes/features, colums = cells/samples). In this example we also provide a ground truth for lineages stemming from a barcoding experiment (values = barcode ID, names = cell IDs).
 
 ```
 > GEMLI_items = list()
@@ -56,7 +56,7 @@ AAGCGAGGTACGGCAA-1                  0                  0                  0     
 
 ### Test lineage prediction
 Since we have barcoding data for this dataset we can test the predicted lineages against our ground truth.
-The `test_lineage_prediction` function again takes our `GEMLI_items` as input. It's important the a predcition as been run first with `predict_lineages`. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitiivity for various confidence intervals. The output can be visualized by setting `plot_results` to `true`/`T`.
+The `test_lineage_prediction` function again takes our `GEMLI_items` as input. It's important that a predcition has been run first with `predict_lineages`. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitivity for various confidence intervals. The output can be visualized by setting `plot_results` to `true`/`T`.
 
 ```
 > GEMLI_items = test_lineages(GEMLI_items)
@@ -83,7 +83,7 @@ The `test_lineage_prediction` function again takes our `GEMLI_items` as input. I
 </p>
 
 ### Visualize predictions as network
-We can also investigate our predctions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predcitions we lower precision.
+We can also investigate our predictions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predcitions with lower precision.
 
 ```
 > visualize_as_network(GEMLI_items, cutoff=90) # left image
