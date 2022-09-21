@@ -2,7 +2,7 @@
 
 GEMLI is an R package to predict cell lineages (cells with a common ancestor) from single cell RNA datasets (or any other type of single-cell gene expression data) and to call genes with a high gene expression memory on the predicted cell lineages. It is described in A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv: https://www.biorxiv.org/content/10.1101/2022.09.20.508646v1
 
-The approach is based on findings of Phillips et al. 2019 where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
+The approach is based on findings of Phillips et al. 2019 (doi.org/10.1038/s41467-019-09189-8) where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
 
 ## Installation
 Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now isntalled and can be used via `library(GEMLI)`.
