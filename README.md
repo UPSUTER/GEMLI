@@ -9,6 +9,9 @@ To install the package simply download the folder "GEMLI_package_v0". Open the p
 
 ## Example 1: small lineages in mouse embryonic stem cells
 
+## Development and feedback
+We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact us under: `marcel.tarbier@scilifelab.se`
+
 ### Load example data
 First we load the example data.
 
