@@ -8,7 +8,7 @@ The approach is based on findings of Phillips et al. 2019 where it was shown tha
 Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now isntalled and can be used via `library(GEMLI)`.
 
 ## Development and feedback
-We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact: marcel.tarbier@scilifelab.se
+We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact: marcel.tarbier@scilifelab.se or almut.eisele@epfl.ch 
 
 ## Example 1: small lineages in mouse embryonic stem cells
 
