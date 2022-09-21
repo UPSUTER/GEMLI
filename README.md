@@ -1,6 +1,6 @@
 # GEMLI: Gene expression memory for lineage identification
 
-GEMLI is an R package to predict cell lineages (cells with a common ancestor) from single cell RNA datasets (or any other type of single-cell gene expression data) and to call genes with a high gene expression memory on the predicted cell lineages. It is described in A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv.
+GEMLI is an R package to predict cell lineages (cells with a common ancestor) from single cell RNA datasets (or any other type of single-cell gene expression data) and to call genes with a high gene expression memory on the predicted cell lineages. It is described in A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv: https://www.biorxiv.org/content/10.1101/2022.09.20.508646v1
 
 The approach is based on findings of Phillips et al. 2019 where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
 
@@ -141,4 +141,4 @@ In some applications it may be useful to trim lineages that are too big. For ins
 </p>
 
 ## Citation
-If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv.
+If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv: https://www.biorxiv.org/content/10.1101/2022.09.20.508646v1
