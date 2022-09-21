@@ -8,7 +8,7 @@ The approach is based on findings of Phillips et al. 2019 where it was shown tha
 To install the package simply download the folder "GEMLI_package_v0". Open the project "GEMLI.Rproj" in RStudio. Then click in the RStudio menu on "Build" and then "Install and Restart". You can then close the window with the project with `rstudioapi::executeCommand('closeProject')` and use the library in R.
 
 ## Development and feedback
-We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact us: [Marcel Tarbier](mailto:marcel.tarbier@scilifelab.se?subject=[GitHub]%20Source%20Han%20Sans)
+We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact us: [marcel.tarbier@scilifelab.se]
 
 ## Example 1: small lineages in mouse embryonic stem cells
 
