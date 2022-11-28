@@ -46,7 +46,7 @@ CACAGATAGTGATGGC-1 TATCTTGGTACGGGAT-1 AAACGAACAGGTGTGA-1 AGAGAATAGGTCATAA-1 GAGT
 We can then identify cell lineages through repeated iterative clustering (this may take 2-3min). The `predict_lineages` function takes our GEMLI_items as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage. 
 
 ```
-> lineage_predictions_matrix = predict_lineages(GEMLI_items)
+> lineage_predictions_matrix = predict_lineages(GEMLI_items[['gene_expression']])
 >
 > lineage_predictions_matrix[1:5,15:19]
                    AGAGAATAGGTCATAA-1 AGAGCAGCAAGTGATA-1 AGATGCTTCAAAGACA-1 AGGATCTGTATCGTTG-1 AGGGAGTAGACGATAT-1
