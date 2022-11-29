@@ -5,7 +5,7 @@ GEMLI is an R package to predict cell lineages (cells with a common ancestor) fr
 The approach is based on findings of Phillips et al. 2019 (doi.org/10.1038/s41467-019-09189-8) where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
 
 ## Installation
-Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now installed and can be used via `library(GEMLI)`.
+Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now installed and can be used via `library(GEMLI)`. (Required package igraph)
 
 ## Development and feedback
 We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact: marcel.tarbier@scilifelab.se or almut.eisele@epfl.ch 
@@ -46,7 +46,7 @@ CACAGATAGTGATGGC-1 TATCTTGGTACGGGAT-1 AAACGAACAGGTGTGA-1 AGAGAATAGGTCATAA-1 GAGT
 We can then identify cell lineages through repeated iterative clustering (this may take 2-3min). The `predict_lineages` function takes our GEMLI_items as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage. 
 
 ```
-> lineage_predictions_matrix = predict_lineages(GEMLI_items[['gene_expression']])
+> lineage_predictions_matrix = predict_lineages(GEMLI_items)
 >
 > lineage_predictions_matrix[1:5,15:19]
                    AGAGAATAGGTCATAA-1 AGAGCAGCAAGTGATA-1 AGATGCTTCAAAGACA-1 AGGATCTGTATCGTTG-1 AGGGAGTAGACGATAT-1
