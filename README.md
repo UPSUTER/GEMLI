@@ -97,7 +97,7 @@ We can also investigate our predictions by visualizing them as a network with th
   <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
 </p>
 
-![](https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png)  |  ![]https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png
+![](https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png)  |  ![](https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png)
 
 If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displaye in white.
 
