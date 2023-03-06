@@ -171,7 +171,7 @@ To visualize large lineages we'll use three different network layout algorithms:
 
 (2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted organoids are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
 
-(3) When the network is layed out as a grid, one get generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
+(3) When the network is layed out as a grid, one gets generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
 
 ```
 > visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="kk")
