@@ -168,7 +168,9 @@ We then create a GEMLI items list. This list is used to store the data, and crea
 To visualize large lineages we'll use three different network layout algorithms: Fruchterman-Reingold, Kamada-Kawai, and grid. Each of them has advantages and disadvantages.
 
 (1) Fruchterman-Reingold dispalys the cells of individual predicted organoids close together with ample space between them. This makes it hard to see connections within individual organoids.
+
 (2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted organoids are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
+
 (3) When the network is layed out as a grid, one get generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
 
 ```
