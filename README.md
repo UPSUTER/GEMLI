@@ -12,6 +12,8 @@ We are still working to make GEMLI more intuitive, user-friendly, faster and ver
 
 ## Example 1: small lineages in mouse embryonic stem cells
 
+For our first example we'll be looking at mouse embryonic stem cells that have been barcoded and cultured for 48h. We'll be working with a subset of this data for fast processing. In our subset we find 'family sizes' ranging from just two up to five related cells.
+
 ### Load example data
 First we load the example data.
 
@@ -143,8 +145,42 @@ In some applications it may be useful to trim lineages that are too big. For ins
 
 ## Example 2: large lineages in gastruloids
 
-### Load example data
-First we load the example data.
+In this example we'll be visualizing GEMLI results from intestinal crypts that have been grown ex-vivo. These organoids oriniate from one or few embruonic stem cells, feature varoious embryonic and differentiated cell types, and are commonly used to study differentiation. In our data we find cells from individual crypts that range from just three up to forty-four related cells per crypt.
+
+### Load example data.
+First we load the example data. Here we already predicted the lineages using GEMLI and therefore do not include a count matrix, but rather start with the predictions right away.
+
+```
+> load('GEMLI_organoid_example_data_matrix.RData')
+> load('GEMLI_organoid_example_barcode_information.RData')
+```
+
+### Create a GEMLI items list
+We then create a GEMLI items list. This list is used to store the data, and create and store the outputs of GEMLI (for details check example one).
+
+```
+> GEMLI_items_crypts = list()
+> GEMLI_items_crypts[['prediction']] = Crypts
+> GEMLI_items_crypts[['barcodes']] = Crypts_bc_dict
+```
+
+### Visualize predictions as network
+To visualize large lineages we'll use three different network layout algorithms: Fruchterman-Reingold, Kamada-Kawai, and grid. Each of them has advantages and disadvantages.
+
+(1) Fruchterman-Reingold dispalys the cells of individual predicted organoids close together with ample space between them. This makes it hard to see connections within individual organoids.
+(2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted organoids are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
+(3) When the network is layed out as a grid, one get generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
+
+```
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="kk")
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="fr")
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="grid")
+```
+
+<p float="left">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
+  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
+</p>
 
 ## Citation
 If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv: https://www.biorxiv.org/content/10.1101/2022.09.20.508646v1
