@@ -14,6 +14,9 @@ calculate_correlations(data_matrix)
   \item{
   data_matrix}{'data_matrix' is a gene expression matrix where rownames are genes (features) and column names are cell IDs (samples).
   }
+  \item{
+  fast}{'fast' = TRUE will make use of the package HiClimR for the calculation of the correlation.
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
