@@ -1,9 +1,9 @@
-quantify_clusters_iterative = function(data_matrix, marker_genes, N=2)
+quantify_clusters_iterative = function(data_matrix, marker_genes, N=2, fast=TRUE)
 {
   iterate = T; i = 2
   genes = intersect(marker_genes, rownames(data_matrix)[rowMeans(data_matrix)>0])
   data_matrix = data_matrix[genes,]
-  corr_expr_raw = calculate_correlations(t(data_matrix)); corr_expr = (1 - corr_expr_raw)/2
+  corr_expr_raw = calculate_correlations(t(data_matrix), fast=TRUE); corr_expr = (1 - corr_expr_raw)/2
   cell_clusters = data.matrix(matrix(0, nrow=ncol(data_matrix), ncol=1)); rownames(cell_clusters) = colnames(data_matrix)
   cell_clusters[,1] = rep(1, ncol(data_matrix))
   while (iterate)
