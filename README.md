@@ -5,7 +5,7 @@ GEMLI is an R package to predict cell lineages (cells with a common ancestor) fr
 The approach is based on findings of Phillips et al. 2019 (doi.org/10.1038/s41467-019-09189-8) where it was shown that some genes show varying gene expression across cell lineages that is stable over multiple cell generation.
 
 ## Installation
-Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now installed and can be used via `library(GEMLI)`. (Required are also the packages igraph and HiClimR loaded as library(igraph) and library(HiClimR).
+Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now installed and can be used via `library(GEMLI)`. (Required are also the packages igraph (visualization function) and HiClimR (fast correlation) loaded as library(igraph) and library(HiClimR).
 
 ## Development and feedback
 We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact: marcel.tarbier@scilifelab.se or almut.eisele@epfl.ch 
