@@ -3,7 +3,7 @@ Type: Package
 Title: Gene expression memory based lineage inference
 Version: 0.1.0
 Author: Who wrote it
-Maintainer: almut.eisele@epfl.ch and marcel.tarbier@scilifelab.se
+Maintainer:
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
