@@ -5,17 +5,17 @@
 predict_lineages_with_known_markers
 }
 \description{
-This function predicts cell lineages from from single-cell RNA-sequencing data when lineage markers are already knwon, e.g. from a barcoding experiment. Subsets of these genes are used to cluster cells until the desired cluster siize is reached. This clustering is repeated many times for random subsets. The result is a cell by cell matrix that lists how many times each cell pair clustered together which translates into a confidence score. Cell pairs with high confidence scores are likely to be members of the same lineage.
+This function predicts cell lineages from from single-cell RNA-sequencing data when lineage markers are already knwon, e.g. from a barcoding experiment. Subsets of these genes are used to cluster cells until the desired cluster size is reached. This clustering is repeated many times for random subsets. The result is a cell by cell matrix that lists how many times each cell pair clustered together which translates into a confidence score. Cell pairs with high confidence scores are likely to be members of the same lineage.
 }
 \usage{
-predict_lineages(GEMLI_items, repititions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=TRUE)
+predict_lineages_with_known_markers(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=TRUE)
 }
 \arguments{
   \item{
   GEMLI_items}{GEMLI_items is a list of GEMLI inputs and outputs. To run 'predict_lineages' it should contain a gene expression matrix named 'gene_expression'. This is a quality controlled and normalized gene expression matrix where rownames are genes (features) and column names are cell IDs (samples). In addition it needs to contain a vector of known marker genes names named 'known_markers'.
   }
   \item{
-  repititions}{'repititions' specifies how many times the input matrix will be clustered using random subsamples of potential markers. A higher number of iterations leaads to more robust results. 10 iterations is considered to be the minimum, but 100 iterations are strongly recommended (default value). Runtime is linear with regard to the number of iterations.
+  repetitions}{'repetitions' specifies how many times the input matrix will be clustered using random subsamples of potential markers. A higher number of iterations leads to more robust results. 10 iterations is considered to be the minimum, but 100 iterations are strongly recommended (default value). Runtime is linear with regard to the number of iterations.
   }
   \item{
   sample_size}{'sample_size' is a value between 0 and 1 and specifies the fraction of potential markers that are used in each clustering. values between 0.5 and 0.67 (default value) are recommended.
@@ -24,7 +24,7 @@ predict_lineages(GEMLI_items, repititions=100, sample_size=(2/3), desired_cluste
   desired_cluster_size}{'desired_cluster_size' specifies the number of cells per cluster to be achieved in each clustering. The input is a lsit of values, e.g. c(2,3,4) or (2:4). The desired cluster size should generally be small. Values between 2 and 4 are recommended (default).
   }
   \item{
-  N}{'N' describes in how many branches the data matrix is split in each clustering step. Higher numbers speed up the clustering but can negaatively impact the result of the prediction. It is highly recommended to keep the default value, 2.
+  N}{'N' describes in how many branches the data matrix is split in each clustering step. Higher numbers speed up the clustering but can negatively impact the result of the prediction. It is highly recommended to keep the default value, 2.
   }
   \item{
   fast}{'fast' =TRUE uses the HiClimR package for calculating correlations
