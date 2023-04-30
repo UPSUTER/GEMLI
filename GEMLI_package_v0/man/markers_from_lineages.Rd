@@ -15,7 +15,7 @@ markers_from_lineages(GEMLI_items)
   GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'markers_from_lineages' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'. It also needs to contain a vector of lineages (values are the lineages and names are the cell IDs) either from predictions or barcodes. If it is run on predictions 'GEMLI_items' needs to contain a vector named 'predicted_lineages'. If it is run on bracodes 'GEMLI_items' needs to contain a vector named 'barcodes'.
   }
   \item{
-  valid_lineage_sizes}{'valid_lineage_sizes' specifies the range of lineage sizes to be included. Depending on the question to be investigated it can be beenficial to either restrict this to small lineages or large lineages respectively. Default is small lineage from 2 to 5 cells (2:5).
+  valid_lineage_sizes}{'valid_lineage_sizes' specifies the range of lineage sizes to be included. Depending on the question to be investigated it can be beneficial to either restrict this to small lineages or large lineages respectively. Default is small lineage from 2 to 5 cells (2:5).
   }
   \item{
   use_median}{'use_median' specifies whether the median of lineages should be used rather than the mean. This makes the approach more robust to outliers. Default is 'true'/'T'.
