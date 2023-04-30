@@ -5,7 +5,7 @@
 prediction_to_lineage_information
 }
 \description{
-This transforms a cell-cell matrix of confidence scores as created by the 'predict_lineages' function into a table (or vector, if specified) of predicted lineages.
+This transforms a cell by cell matrix of confidence scores as created by the 'predict_lineages' function into a table (or vector, if specified) of predicted lineages.
 }
 \usage{
 prediction_to_lineage_information(GEMLI_items)
