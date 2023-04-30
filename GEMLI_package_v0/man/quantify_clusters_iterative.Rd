@@ -18,7 +18,7 @@ quantify_clusters_iterative(data_matrix, marker_genes, N=2, fast=TRUE)
   marker_genes}{'marker_genes' is a vector of gene names or IDs of potential lineage marker genes. It is automatically created in the 'predict_lineages' function or can be computed manually using the 'potential_markers' function.
   }
   \item{
-  N}{'N' describes in how many branches the data matrix is split in each clustering step. Higher numbers speed up the clustering but can negaatively impact the result of the prediction. It is highly recommended to keep the default value, 2.
+  N}{'N' describes in how many branches the data matrix is split in each clustering step. Higher numbers speed up the clustering but can negatively impact the result of the prediction. It is highly recommended to keep the default value, 2.
   }
   \item{
   fast}{'fast' =TRUE uses the HiClimR package for calculating correlations
