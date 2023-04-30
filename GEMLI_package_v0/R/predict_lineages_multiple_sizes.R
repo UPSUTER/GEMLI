@@ -1,6 +1,6 @@
 predict_lineages_multiple_sizes <- function(GEMLI_items, repetitions=10, sample_size=(2/3), minimal_maximal_cluster_size=c(2,50), N=2, cutoff=5) # check
 {
-  # split out the desired_cluster_size into vectors encompassing all combis between the min and max value
+  # split out the minimal_maximal_cluster_size into vectors encompassing all combis between the min and max value
   # for each of the vectors then generate the lineage prediction and combine them into one table
   desired_sizes<-list()
   for (m in 2:minimal_maximal_cluster_size[2]){desired_sizes[[m-1]]<-c(1:m)}
