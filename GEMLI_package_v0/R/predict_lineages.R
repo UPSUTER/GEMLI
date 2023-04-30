@@ -1,9 +1,9 @@
-predict_lineages <- function(GEMLI_items, repititions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=TRUE) # check
+predict_lineages <- function(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=TRUE) # check
 {
   data_matrix = GEMLI_items[['gene_expression']]
   marker_genes = potential_markers(data_matrix)
   results = data.matrix(matrix(0, nrow=ncol(data_matrix), ncol=ncol(data_matrix))); rownames(results) = colnames(data_matrix); colnames(results) = colnames(data_matrix)
-  for (i in seq(1,repititions))
+  for (i in seq(1,repetitions))
   {
     marker_genes_sample = sample(intersect(marker_genes, rownames(data_matrix)), round(length(intersect(marker_genes, rownames(data_matrix)))*sample_size,0))
     cell_clusters = quantify_clusters_iterative(data_matrix, marker_genes_sample, N=2, fast)
