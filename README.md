@@ -152,8 +152,8 @@ In this example we'll be visualizing GEMLI results from intestinal crypts that h
 First we load the example data. Here we already predicted the lineages using GEMLI and therefore do not include a count matrix, but rather start with the predictions right away.
 
 ```
-> load('GEMLI_organoid_example_data_matrix.RData')
-> load('GEMLI_organoid_example_barcode_information.RData')
+> load('GEMLI_crypts_example_data_matrix.RData')
+> load('GEMLI_crypts_example_barcode_information.RData')
 ```
 
 ### Create a GEMLI items list
