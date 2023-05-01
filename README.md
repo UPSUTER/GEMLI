@@ -6,7 +6,7 @@ The approach is based on findings of Phillips et al. 2019 (doi.org/10.1038/s4146
 
 ## Installation
 Simply tun: `install_github("UPSUTER/GEMLI", subdir="GEMLI_package_v0")`. GEMLI is now installed and can be used via `library(GEMLI)`. (Required are also the packages igraph (visualization function) and HiClimR (fast correlation) loaded as library(igraph) and library(HiClimR).
-Mind: The ìnstall_github` command requires the `devtools` package. If it's not installed yet, you can do so with `install.packages("devtools")`.
+Mind: The `install_github` command requires the `devtools` package. If it's not installed yet, you can do so with `install.packages("devtools")`.
 
 ## Development and feedback
 We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore exiting functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact: marcel.tarbier@scilifelab.se or almut.eisele@epfl.ch 
