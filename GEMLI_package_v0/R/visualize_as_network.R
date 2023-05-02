@@ -1,4 +1,4 @@
-visualize_as_network <- function(GEMLI_items, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=T, layout_style='fr', cell_type_colors=T)
+visualize_as_network <- function(GEMLI_items, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=T, layout_style='fr', cell_type_colors=F)
 {
   lineage_predictions_matrix = GEMLI_items[["prediction"]]
   if (ground_truth) {lineage_dict = GEMLI_items[['barcodes']]} else {lineage_dict = prediction_to_lineage_information(GEMLI_items, cutoff, output_as_dict=T)$predicted_lineages}
