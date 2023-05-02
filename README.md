@@ -202,7 +202,7 @@ The visualization of the lineage predictions can now be colored by the cell type
 
 ```
 <p float="left">
-  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_cell_type_colors.png">
+  <img width="330" height="400" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_cell_type_colors.png">
 </p>
 
 Specific colors can be assigned to specific cell types by adding a dataframe with column 'cell.type' and 'color' in the GEMLI items list slot 'cell_type_color'.
@@ -218,7 +218,7 @@ Specific colors can be assigned to specific cell types by adding a dataframe wit
 ```
 
 <p float="left">
-  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_custom_cell_type_colors.png">
+  <img width="330" height="400" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_custom_cell_type_colors.png">
 </p>
 
 
