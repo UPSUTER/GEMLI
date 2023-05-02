@@ -168,7 +168,7 @@ We then create a GEMLI items list. This list is used to store the data, and crea
 ### Visualize predictions as network
 To visualize large lineages we'll use three different network layout algorithms: Fruchterman-Reingold, Kamada-Kawai, and grid. Each of them has advantages and disadvantages.
 
-(1) Fruchterman-Reingold dispalys the cells of individual predicted organoids close together with ample space between them. This makes it hard to see connections within individual organoids.
+(1) Fruchterman-Reingold dispalys the cells of individual predicted organoids close together with ample space between them. This makes it hard to see connections within individual organoids but allows to get a good overview of individual structures.
 
 (2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted organoids are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
 
@@ -185,6 +185,44 @@ To visualize large lineages we'll use three different network layout algorithms:
   <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_kk.png">
   <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_grid.png">
 </p>
+
+### Adding cell type information to the GEMLI items list
+The cells of individual intestinal organoids can be assigned to different cell types. This information can be added to the GEMLI items list as 'cell_type' slot in the from of a dataframe with column 'cell.ID' and 'cell.type'.
+
+```
+> load('GEMLI_crypts_example_cell_type_annotation.RData')
+> GEMLI_items[['cell_type']] = Crypts_annotation
+```
+
+### Color prediction network visualization by cell type
+The visualization of the lineage predictions can now be colored by the cell type annotation. This allows to see the composition of individual intestinal organoids. 
+
+```
+> visualize_as_network(GEMLI_items, cutoff=70, max_edge_with=1, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+
+```
+<p float="left">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_cell_type_colors.png">
+</p>
+
+Specific colors can be assigned to specific cell types by adding a dataframe with column 'cell.type' and 'color' in the GEMLI items list slot 'cell_type_color'.
+
+```
+> cell.type <- unique(GEMLI_items[['cell_type']]$cell.type)
+> color <- c("#5386BD", "skyblue1", "darkgreen", "gold", "red", "darkred", "black")
+> Cell_type_color <- data.frame(cell.type, color)
+> GEMLI_items[['cell_type_color']] = Cell_type_color
+>
+> visualize_as_network(GEMLI_items, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+
+```
+
+<p float="left">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_custom_cell_type_colors.png">
+</p>
+
+
+
 
 ## Citation
 If you use the package, please cite A.S. Eisele*, M. Tarbier*, A.A. Dormann, V. Pelechano, D.M. Suter | "Barcode-free prediction of cell lineages from scRNA-seq datasets" | 2022 bioRxiv: https://www.biorxiv.org/content/10.1101/2022.09.20.508646v1
