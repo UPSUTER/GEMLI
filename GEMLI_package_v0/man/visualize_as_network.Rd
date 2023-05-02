@@ -8,7 +8,7 @@ visualize_as_network
 This function visualizes the lineage prediction as a network.
 }
 \usage{
-visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_with=5, ground_truth=F, include_labels=F, highlight_FPs=T, layout_style="kk")
+visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_with=5, ground_truth=F, include_labels=F, highlight_FPs=T, layout_style="fr", cell_type_colors=F)
 }
 \arguments{
   \item{
@@ -33,9 +33,11 @@ visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_with=5, 
   highlight_FPs}{If the 'GEMLI_items' list contains a 'barcodes' vector with orthogonal lineage information and 'ground_truth' is 'true'/'T' connections between cell that are false positives will be highlighted in red. It can be set tp 'false'/'F' to not highlight false predictions. Default is 'true'/'T'.
   }
   \item{
-  layout_style}{Depending on the number of cells, and the size of lineages, different layout styles can improve readability. Currently three different network layout algorithms canbe chosen: Fruchterman-Reingold ("fr"), Kamada-Kawai ("kk"), and grid ("grid"). Default is "kk".
+  layout_style}{Depending on the number of cells, and the size of lineages, different layout styles can improve readability. Currently three different network layout algorithms canbe chosen: Fruchterman-Reingold ("fr"), Kamada-Kawai ("kk"), and grid ("grid"). Default is "fr".
   }
-  
+    \item{
+  cell_type_colors}{'cell_type_colors' can be set 'true'/'T' to color cells by assigned cell type. For such coloring the GEMLI items list must contain a cell_type element (dataframe with column 'cell.ID' and 'cell.type'). Specific colors will be assigned to specific cell types if a GEMLI items list elemnt 'cell_type_color' is added (dataframe with column 'cell-type' and 'color'). If no 'cell_type_color' element is present, random colors will be assigned to each cell type. Default is cell_type_colors = 'F'.
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
