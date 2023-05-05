@@ -1,7 +1,7 @@
 predict_lineages_with_known_markers <- function(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=TRUE)
 {
   norm_data = norm_data = GEMLI_items[['gene_expression']]
-  marker_genes = norm_data = GEMLI_items[['known_markers']]
+  marker_genes = GEMLI_items[['known_markers']]
   results = data.matrix(matrix(0, nrow=ncol(norm_data), ncol=ncol(norm_data))); rownames(results) = colnames(norm_data); colnames(results) = colnames(norm_data)
   for (i in seq(1,repetitions))
   {
