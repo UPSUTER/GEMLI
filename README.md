@@ -107,8 +107,8 @@ If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `
 > visualize_as_network(GEMLI_items, cutoff=50, ground_truth=T) # right image
 ```
 <p float="left">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
+  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
+  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
 </p>
 
 ### Extract lineage information
