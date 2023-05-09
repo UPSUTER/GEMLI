@@ -96,8 +96,8 @@ We can also investigate our predictions by visualizing them as a network with th
 > visualize_as_network(GEMLI_items, cutoff=50) # right image
 ```
 <p float="left">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
+  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
+  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
 </p>
 
 If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displaye in white.
