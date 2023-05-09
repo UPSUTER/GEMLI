@@ -146,7 +146,7 @@ In some applications it may be useful to trim lineages that are too big. For ins
 
 ## Example 2: large lineages in intestinal crypts
 
-In this example we'll be visualizing GEMLI results from intestinal crypts that have been grown ex-vivo. These organoids oriniate from one or few embruonic stem cells, feature varoious embryonic and differentiated cell types, and are commonly used to study differentiation. In our data we find cells from individual crypts that range from just three up to forty-four related cells per crypt.
+In this example we'll be visualizing GEMLI results from a lineage-annotated dataset of murine intestinal crypts. Intestinal crypts originate from one or few intestinal stem cells, and are composed of a number of different cell types. In the data we find cells from individual crypts that range from just three up to forty-four related cells.
 
 ### Load example data.
 First we load the example data. Here we already predicted the lineages using GEMLI and therefore do not include a count matrix, but rather start with the predictions right away.
