@@ -139,8 +139,8 @@ In some applications it may be useful to trim lineages that are too big. For ins
 > visualize_as_network(GEMLI_items_post_processed, cutoff=50) # right image
 ```
 <p float="left">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT_ST.png">
-  <img width="500" height="500" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_trim.png">
+  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT_ST.png">
+  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_trim.png">
 </p>
 
 
