@@ -96,8 +96,8 @@ We can also investigate our predictions by visualizing them as a network with th
 > visualize_as_network(GEMLI_items, cutoff=50) # right image
 ```
 <p float="left">
-  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
-  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
 </p>
 
 If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displaye in white.
@@ -107,8 +107,8 @@ If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `
 > visualize_as_network(GEMLI_items, cutoff=50, ground_truth=T) # right image
 ```
 <p float="left">
-  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
-  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
 </p>
 
 ### Extract lineage information
@@ -139,8 +139,8 @@ In some applications it may be useful to trim lineages that are too big. For ins
 > visualize_as_network(GEMLI_items_post_processed, cutoff=50) # right image
 ```
 <p float="left">
-  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT_ST.png">
-  <img width="250" height="250" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_trim.png">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT_ST.png">
+  <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_trim.png">
 </p>
 
 
