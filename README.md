@@ -168,9 +168,9 @@ We then create a GEMLI items list. This list is used to store the data, and crea
 ### Visualize predictions as network
 To visualize large lineages we'll use three different network layout algorithms: Fruchterman-Reingold, Kamada-Kawai, and grid. Each of them has advantages and disadvantages.
 
-(1) Fruchterman-Reingold dispalys the cells of individual predicted organoids close together with ample space between them. This makes it hard to see connections within individual organoids but allows to get a good overview of individual structures.
+(1) Fruchterman-Reingold dispalys the cells of individual predicted crypts close together with ample space between them. This makes it hard to see connections within individual crypts but allows to get a good overview of individual structures.
 
-(2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted organoids are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
+(2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted crypts are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
 
 (3) When the network is layed out as a grid, one gets generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
 
@@ -187,7 +187,7 @@ To visualize large lineages we'll use three different network layout algorithms:
 </p>
 
 ### Adding cell type information to the GEMLI items list
-The cells of individual intestinal organoids can be assigned to different cell types. This information can be added to the GEMLI items list as 'cell_type' slot in the from of a dataframe with column 'cell.ID' and 'cell.type'.
+The cells of individual intestinal crypts can be assigned to different cell types. This information can be added to the GEMLI items list as 'cell_type' slot in the from of a dataframe with column 'cell.ID' and 'cell.type'.
 
 ```
 > load('GEMLI_crypts_example_cell_type_annotation.RData')
@@ -195,7 +195,7 @@ The cells of individual intestinal organoids can be assigned to different cell t
 ```
 
 ### Color prediction network visualization by cell type
-The visualization of the lineage predictions can now be colored by the cell type annotation. This allows to see the composition of individual intestinal organoids. 
+The visualization of the lineage predictions can now be colored by the cell type annotation. This allows to see the composition of individual intestinal crypts. 
 
 ```
 > visualize_as_network(GEMLI_items, cutoff=70, max_edge_with=1, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
