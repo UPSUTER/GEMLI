@@ -191,14 +191,14 @@ The cells of individual intestinal crypts can be assigned to different cell type
 
 ```
 > load('GEMLI_crypts_example_cell_type_annotation.RData')
-> GEMLI_items[['cell_type']] = Crypts_annotation
+> GEMLI_items_crypts[['cell_type']] = Crypts_annotation
 ```
 
 ### Color prediction network visualization by cell type
 The visualization of the lineage predictions can now be colored by the cell type annotation. This allows to see the composition of individual intestinal crypts. 
 
 ```
-> visualize_as_network(GEMLI_items, cutoff=70, max_edge_with=1, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_with=1, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
 
 ```
 <p float="left">
@@ -208,12 +208,12 @@ The visualization of the lineage predictions can now be colored by the cell type
 Specific colors can be assigned to specific cell types by adding a dataframe with column 'cell.type' and 'color' in the GEMLI items list slot 'cell_type_color'.
 
 ```
-> cell.type <- unique(GEMLI_items[['cell_type']]$cell.type)
+> cell.type <- unique(GEMLI_items_crypts[['cell_type']]$cell.type)
 > color <- c("#5386BD", "skyblue1", "darkgreen", "gold", "red", "darkred", "black")
 > Cell_type_color <- data.frame(cell.type, color)
-> GEMLI_items[['cell_type_color']] = Cell_type_color
+> GEMLI_items_crypts[['cell_type_color']] = Cell_type_color
 >
-> visualize_as_network(GEMLI_items, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
 
 ```
 
