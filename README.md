@@ -92,8 +92,8 @@ The `test_lineage_prediction` function again takes our `GEMLI_items` as input. I
 We can also investigate our predictions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predictions with lower precision.
 
 ```
-> visualize_as_network(GEMLI_items, cutoff=90) # left image
-> visualize_as_network(GEMLI_items, cutoff=50) # right image
+> visualize_as_network(GEMLI_items, cutoff=90) # top image
+> visualize_as_network(GEMLI_items, cutoff=50) # lower image
 ```
 <p float="left">
   <img width="430" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
@@ -103,8 +103,8 @@ We can also investigate our predictions by visualizing them as a network with th
 If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displayed in white.
 
 ```
-> visualize_as_network(GEMLI_items, cutoff=90, ground_truth=T) # left image
-> visualize_as_network(GEMLI_items, cutoff=50, ground_truth=T) # right image
+> visualize_as_network(GEMLI_items, cutoff=90, ground_truth=T) # top image
+> visualize_as_network(GEMLI_items, cutoff=50, ground_truth=T) # lower image
 ```
 <p float="left">
   <img width="430" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
@@ -175,9 +175,9 @@ To visualize large lineages we'll use three different network layout algorithms:
 (3) When the network is layed out as a grid, one gets generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
 
 ```
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="fr")
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="kk")
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="grid")
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="fr") # first image
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="kk") # second image
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="grid") # third image
 ```
 
 <p float="left">
