@@ -89,7 +89,7 @@ The `test_lineage_prediction` function again takes our `GEMLI_items` as input. I
 </p>
 
 ### Visualize predictions as network
-We can also investigate our predictions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predcitions with lower precision.
+We can also investigate our predictions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predictions with lower precision.
 
 ```
 > visualize_as_network(GEMLI_items, cutoff=90) # left image
@@ -100,7 +100,7 @@ We can also investigate our predictions by visualizing them as a network with th
   <img width="330" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
 </p>
 
-If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displaye in white.
+If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displayed in white.
 
 ```
 > visualize_as_network(GEMLI_items, cutoff=90, ground_truth=T) # left image
@@ -168,7 +168,7 @@ We then create a GEMLI items list. This list is used to store the data, and crea
 ### Visualize predictions as network
 To visualize large lineages we'll use three different network layout algorithms: Fruchterman-Reingold, Kamada-Kawai, and grid. Each of them has advantages and disadvantages.
 
-(1) Fruchterman-Reingold dispalys the cells of individual predicted crypts close together with ample space between them. This makes it hard to see connections within individual crypts but allows to get a good overview of individual structures.
+(1) Fruchterman-Reingold dispalys the cells of individual predicted crypts close together with ample space between crypts. This makes it hard to see connections within individual crypts but allows to get a good overview of individual structures.
 
 (2) Kamada-Kawai spaces individual cells well, so we can see individual connections between them. It may, however, happen that two different predicted crypts are partially overlayed, as can be seen for dark red and bright green lineages on the right side of the plot.
 
@@ -187,7 +187,7 @@ To visualize large lineages we'll use three different network layout algorithms:
 </p>
 
 ### Adding cell type information to the GEMLI items list
-The cells of individual intestinal crypts can be assigned to different cell types. This information can be added to the GEMLI items list as 'cell_type' slot in the from of a dataframe with column 'cell.ID' and 'cell.type'.
+The cells of individual intestinal crypts can be assigned to different cell types. This information can be added to the GEMLI items list as 'cell_type' slot in the form of a dataframe with column 'cell.ID' and 'cell.type'.
 
 ```
 > load('GEMLI_crypts_example_cell_type_annotation.RData')
@@ -205,7 +205,7 @@ The visualization of the lineage predictions can now be colored by the cell type
   <img width="330" height="400" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_cell_type_colors.png">
 </p>
 
-Specific colors can be assigned to specific cell types by adding a dataframe with column 'cell.type' and 'color' in the GEMLI items list slot 'cell_type_color'.
+Specific colors can be assigned to specific cell types by adding a dataframe with column 'cell.type' and 'color' in the GEMLI items list slot 'cell_type_color'. This can also allow to highlight just one or two selected cell types.
 
 ```
 > cell.type <- unique(GEMLI_items_crypts[['cell_type']]$cell.type)
