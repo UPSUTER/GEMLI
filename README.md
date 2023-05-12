@@ -96,8 +96,8 @@ We can also investigate our predictions by visualizing them as a network with th
 > visualize_as_network(GEMLI_items, cutoff=50) # right image
 ```
 <p float="left">
-  <img width="330" height="390" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
-  <img width="330" height="390" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
+  <img width="430" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90.png">
+  <img width="430" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50.png">
 </p>
 
 If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `true`/`T` to highlight false predictions with red edges. Cells without barcode information will be displayed in white.
@@ -107,8 +107,8 @@ If a ground truth e.g. from barcoding is avalable we can set `ground_truth` to `
 > visualize_as_network(GEMLI_items, cutoff=50, ground_truth=T) # right image
 ```
 <p float="left">
-  <img width="330" height="375" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
-  <img width="330" height="375" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
+  <img width="430" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_90_GT.png">
+  <img width="430" height="330" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_network_50_GT.png">
 </p>
 
 ### Extract lineage information
