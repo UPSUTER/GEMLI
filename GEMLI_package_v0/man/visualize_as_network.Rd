@@ -8,7 +8,7 @@ visualize_as_network
 This function visualizes the lineage prediction as a network.
 }
 \usage{
-visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_with=5, ground_truth=F, include_labels=F, highlight_FPs=T, layout_style="fr", cell_type_colors=F)
+visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_width=5, ground_truth=F, include_labels=F, highlight_FPs=T, layout_style="fr", cell_type_colors=F)
 }
 \arguments{
   \item{
@@ -18,7 +18,7 @@ visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_with=5, 
   cutoff}{'cutoff' specifies the confidence score at which a cell pair is considered to be part of the same lineage. High values (e.g. 70-100) provide high precision but lower sensitivity. Low values (e.g. 30-60) provide higher sensitivity but lower precision. Default value is 70.
   }
   \item{
-  max_edge_with}{'max_edge_with' specifies the maximum width of edges in the network visualization. All edge weights above the defined 'cutoff' will be scaled between 0.1*'max_edge_with' and 'max_edge_with'. Default value is 5.
+  max_edge_width}{'max_edge_width' specifies the maximum width of edges in the network visualization. All edge weights above the defined 'cutoff' will be scaled between 0.1*'max_edge_with' and 'max_edge_with'. Default value is 5.
   }
   \item{
   display_orphan}{'display_orphan' defines whether cells without connections should be displayed. This commonly leads the network plot getting less readable. Therefore the suggestion and the default are 'false'/'F'.
