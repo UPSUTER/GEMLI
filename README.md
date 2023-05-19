@@ -175,9 +175,9 @@ To visualize large lineages we'll use three different network layout algorithms:
 (3) When the network is layed out as a grid, one gets generally a good overview of the predicted lineages and their connections, but it's hard to see which connections belongs to which cell in the same row.
 
 ```
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="fr") # first image
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="kk") # second image
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_with=1, ground_truth=T, include_labels=F, layout_style="grid") # third image
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_width=1, ground_truth=T, include_labels=F, layout_style="fr") # first image
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_width=1, ground_truth=T, include_labels=F, layout_style="kk") # second image
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, display_orphan=F, max_edge_width=1, ground_truth=T, include_labels=F, layout_style="grid") # third image
 ```
 
 <p float="left">
@@ -198,7 +198,7 @@ The cells of individual intestinal crypts can be assigned to different cell type
 The visualization of the lineage predictions can now be colored by the cell type annotation. This allows to see the composition of individual intestinal crypts. 
 
 ```
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
 
 ```
 <p float="left">
@@ -213,7 +213,7 @@ Specific colors can be assigned to specific cell types by adding a dataframe wit
 > Cell_type_color <- data.frame(cell.type, color)
 > GEMLI_items_crypts[['cell_type_color']] = Cell_type_color
 >
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
 
 ```
 
