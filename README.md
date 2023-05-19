@@ -198,7 +198,7 @@ The cells of individual intestinal crypts can be assigned to different cell type
 The visualization of the lineage predictions can now be colored by the cell type annotation. This allows to see the composition of individual intestinal crypts. 
 
 ```
-> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_with=1, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
+> visualize_as_network(GEMLI_items_crypts, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=F, ground_truth=T, highlight_FPs=T, layout_style="kk", cell_type_colors=T)
 
 ```
 <p float="left">
