@@ -8,7 +8,7 @@ suggest_network_trimming_to_size
 This function visualizes the lineage prediction as a network and highlights edges that could be removed based on a maximum lineage size cutoff. In lineages that exceed this size, the weakest links (least likely shared lineages) are suggested to be trimmed until the desired maximum size is reached. Trimming suggestions are highlighted in red.
 }
 \usage{
-suggest_network_trimming_to_size(GEMLI_items) # max_size=4, cutoff=70, max_edge_with=5, display_orphan=F, include_labels=T, ground_truth=F)
+suggest_network_trimming_to_size(GEMLI_items) # max_size=4, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=T, ground_truth=F)
 }
 \arguments{
   \item{
@@ -21,7 +21,7 @@ suggest_network_trimming_to_size(GEMLI_items) # max_size=4, cutoff=70, max_edge_
   cutoff}{'cutoff' specifies the confidence score at which a cell pair is considered to be part of the same lineage. High values (e.g. 70-100) provide high precision but lower sensitivity. Low values (e.g. 30-60) provide higher sensitivity but lower precision. Default value is 70.
   }
   \item{
-  max_edge_with}{'max_edge_with' specifies the maximum width of edges in the network visualization. All edge weights above the defined 'cutoff' will be scaled between 0.1*'max_edge_with' and 'max_edge_with'. Default value is 5.
+  max_edge_with}{'max_edge_width' specifies the maximum width of edges in the network visualization. All edge weights above the defined 'cutoff' will be scaled between 0.1*'max_edge_with' and 'max_edge_with'. Default value is 5.
   }
   \item{
   display_orphan}{'display_orphan' defines whether cells without connections should be displayed. This commonly leads the network plot getting less readable. Therefore the suggestion and the default are 'false'/'F'.
