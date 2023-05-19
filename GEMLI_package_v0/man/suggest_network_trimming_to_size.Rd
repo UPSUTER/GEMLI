@@ -32,6 +32,9 @@ suggest_network_trimming_to_size(GEMLI_items) # max_size=4, cutoff=70, max_edge_
   \item{
   ground_truth}{If the 'GEMLI_items' list contains a 'barcodes' vector with orthogonal lineage information 'ground_truth' can be set 'true'/'T' to color cells according to their lineage. Default is 'false'/'F'.
   }
+   \item{
+  layout_style}{Depending on the number of cells, and the size of lineages, different layout styles can improve readability. In the suggest_network_trimming_to_size two layout algorithms can be chosen: Fruchterman-Reingold ("fr") and Kamada-Kawai ("kk"). Default is "fr".
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
