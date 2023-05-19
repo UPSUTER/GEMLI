@@ -1,7 +1,7 @@
 visualize_as_network <- function(GEMLI_items, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=T, layout_style='fr', cell_type_colors=F)
 {
   par(mar=c(0,0,2,0))
-  layout(mat = matrix(c(1, 2, 3, 0), nrow = 2, ncol = 2), heights = c(3, 1), widths = c(3,1))
+  if (cell_type_colors) {layout(mat = matrix(c(1, 2, 3, 0), nrow = 2, ncol = 2), heights = c(3, 1), widths = c(3,1))} else {layout(mat = matrix(c(1, 2), nrow = 2, ncol = 1), heights = c(3, 1))}
   # title
   lineage_predictions_matrix = GEMLI_items[["prediction"]]
   if (ground_truth) {lineage_dict = GEMLI_items[['barcodes']]} else {lineage_dict = prediction_to_lineage_information(GEMLI_items, cutoff, output_as_dict=T)$predicted_lineages}
@@ -51,8 +51,10 @@ visualize_as_network <- function(GEMLI_items, cutoff=70, max_edge_width=5, displ
     if ((ground_truth==T) & (highlight_FPs==T)) {legend("top", legend = c("Correct", "False"), col = c("grey", "red"), bty = "n", lty=1:1, lwd=c(max(edge_width), max(edge_width)), title = "Prediction", title.adj =0, horiz=F, xpd=TRUE, inset=c(0,0),ncol=1)}
     legend("topleft", legend = c(max(lineage_predictions_matrix), min(lineage_predictions_matrix[which(lineage_predictions_matrix>cutoff)])), col = c("black", "black"), bty = "n", lty=1:1, lwd=c(max(edge_width),(min(edge_width)+ (max_edge_width*0.1))), title = "Confidence", title.adj =0, horiz=F, xpd=TRUE, inset=c(.15,0),ncol=1)
     # Vertex_color
-    if ((ground_truth==T) & (cell_type_colors==F)) {legend("topright", legend=c("Color - ground truth","White - no ground truth"), bty = "n", title = "Color ", title.adj =0.5, horiz=F, xpd=TRUE, inset=c(.05, 0),ncol=1)}
-    if ((ground_truth==F) & (cell_type_colors==F)) {legend("top", legend=c("prediction",""), bty = "n", title = "  Color by", title.adj =0.5, horiz=F, xpd=TRUE, inset=c(0, 0),ncol=1)}
+    if ((ground_truth==T) & (cell_type_colors==F) & (include_labels==F)) {legend("topright", legend=c("Color - ground truth","White - no ground truth"), bty = "n", title = "Color ", title.adj =0.5, horiz=F, xpd=TRUE, inset=c(.05, 0),ncol=1)}
+    if ((ground_truth==F) & (cell_type_colors==F) & (include_labels==F)) {legend("top", legend=c("prediction",""), bty = "n", title = "  Color by", title.adj =0.5, horiz=F, xpd=TRUE, inset=c(0, 0),ncol=1)}
+    if ((ground_truth==T) & (cell_type_colors==F) & (include_labels==T)) {legend("topright", legend=c("Color - ground truth","White - no ground truth","Number - cell ID"), bty = "n", title = "Vertex ", title.adj =0.5, horiz=F, xpd=TRUE, inset=c(.05, 0),ncol=1)}
+    if ((ground_truth==F) & (cell_type_colors==F) & (include_labels==T)) {legend("top", legend=c("Color - prediction","Number - cell ID"), bty = "n", title = "  Vertex", title.adj =0.5, horiz=F, xpd=TRUE, inset=c(0, 0),ncol=1)}
     if (cell_type_colors) {
       plot(NULL ,xaxt='n',yaxt='n',bty='n',ylab='',xlab='', xlim=0:1, ylim=0:1)
       legend("left", legend = GEMLI_items[['cell_type_color']]$cell.type, pch = 16, col = GEMLI_items[['cell_type_color']]$color, title = "Cell type", bty = "o", horiz=F, xpd=TRUE, inset=c(0, 0),ncol=1)}
