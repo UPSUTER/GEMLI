@@ -13,7 +13,7 @@ We are still working to make GEMLI more intuitive, user-friendly, faster and ver
 
 ## Example 1: small lineages in mouse embryonic stem cells
 
-For our first example we'll be looking at mouse embryonic stem cells that have been barcoded and cultured for 48h. We'll be working with a subset of this data for fast processing. In our subset we find 'family sizes' ranging from just two up to five related cells.
+For our first example we'll be looking at mouse embryonic stem cells that have been barcoded and cultured for 48h. We'll be working with a subset of this data for fast processing. In our subset we find 'family sizes' ranging from just two up to five related cells. 
 
 ### Load example data
 First we load the example data.
@@ -146,7 +146,7 @@ In some applications it may be useful to trim lineages that are too big. For ins
 
 ## Example 2: large lineages in intestinal crypts
 
-In this example we'll be visualizing GEMLI results from a lineage-annotated dataset of murine intestinal crypts. Intestinal crypts originate from one or few intestinal stem cells, and are composed of a number of different cell types. In the data we find cells from individual crypts that range from just three up to forty-four related cells.
+In this example we'll be visualizing GEMLI results from a lineage-annotated dataset of murine intestinal crypts. Intestinal crypts originate from one or few intestinal stem cells, and are composed of a number of different cell types. In the data we find cells from individual crypts that range from just three up to forty-four related cells. The data is derived from Bues et al. 2022 (PMID 35165449).
 
 ### Load example data.
 First we load the example data. Here we already predicted the lineages using GEMLI and therefore do not include a count matrix, but rather start with the predictions right away.
