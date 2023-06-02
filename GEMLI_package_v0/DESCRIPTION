@@ -4,8 +4,15 @@ Title: Gene expression memory based lineage inference
 Version: 0.1.0
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Uses general characteristics of genes with lineage-specific expression 
+    to predict cell lineages in scRNA-seq datasets. 
+Imports: 
+    igraph (>= 1.4.3),
+    HiClimR (>= 2.2.1),
+    dplyr (>= 1.1.2),
+    Seurat (>= 4.3.0),
+    ggplot2 (>= 3.4.2),
+    ggrepel (>= 0.9.3)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
