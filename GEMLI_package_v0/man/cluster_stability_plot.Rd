@@ -25,7 +25,7 @@ cluster_stability_plot(GEMLI_items)
 %% ~put references to the literature/web site here ~
 }
 \author{
-Marcel Tarbier and Almut Eisele
+Almut Eisele and Marcel Tarbier
 }
 \note{
 %%  ~~further notes~~
