@@ -6,6 +6,7 @@ Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Uses general characteristics of genes with lineage-specific expression 
     to predict cell lineages in scRNA-seq datasets. 
+URL: https://github.com/UPSUTER/GEMLI
 Imports: 
     igraph (>= 1.4.3),
     HiClimR (>= 2.2.1),
