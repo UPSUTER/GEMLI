@@ -43,7 +43,7 @@ predict_lineages_multiple_sizes(GEMLI_items, repetitions=10, sample_size=(2/3), 
 %% ~put references to the literature/web site here ~
 }
 \author{
-Marcel Tarbier and Almut Eisele
+Almut Eisele and Marcel Tarbier
 }
 \note{
 %%  ~~further notes~~
