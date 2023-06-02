@@ -221,6 +221,75 @@ Specific colors can be assigned to specific cell types by adding a dataframe wit
   <img width="430" height="300" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_custom_cell_type_colors.png">
 </p>
 
+## Example 3: Cell fate decisions in human breast cancer
+
+For our third example we'll be looking at cell fate decisions in a scRNA-seq dataset of human breast cancer encompassing both ductal carcinoma in situ (DCIS) and invasive tumor (inv_tumor) cells. We'll be working with a subset of this data for fast processing. No ground truth is available. We will study the fate transition from DCIS to invasive tumor cells. The data is derived from a public 10X Genomics dataset.
+
+### Load example data.
+First we load the example data. We already predicted the lineages and extracted the predicted lineages using GEMLI. Furthermore we load the previously generated cell type information for all cells in the dataset. 
+
+```
+> load('GEMLI_cancer_example_norm_count.RData')
+> load('GEMLI_cancer_example_predicted_lineages.RData')
+> load('GEMLI_cancer_example_cell_type_annotation.RData')
+```
+
+### Create a GEMLI items list
+We then create a GEMLI items list. This list is used to store the data, and create and store the outputs of GEMLI (for details check example one).
+
+```
+> GEMLI_items = list()
+> GEMLI_items[['gene_expression']] = Cancer_norm_count
+> GEMLI_items[['predicted_lineage_table']] = Cancer_predicted_lineages
+> GEMLI_items[['cell_type']] = Cancer_annotation
+```
+
+### Extract symmetric and asymmetric cell lineages
+We extract now predicted cell lineages with members in only one cell type (symmetric) or in two or more cell types (asymmetric). To analyze the transition from DCIS to invasive breast cancer we will extract symmetric DCIS, asymmetric DCIS and invasive tumor, and symmetric inv_tumor lineages. To exclude lineages with a too large asymmetry, we set a threshold to extract asymmetric lineages containing at least 10% of each cell type. The function output is stored in GEMLI_items 'cell_fate_analysis' item. It is a data frame with a column cell.fate with label sym or asym and cell type separated by an underscore. This cell.fate designation allows to subsequently analyze only a specific cell type in asymmetric cell lineages.
+
+```
+> GEMLI_items<-extract_cell_fate_lineages(GEMLI_items, selection=c("inv_tumor", "DCIS"), unique=FALSE, threshold=c(10,10))
+>
+> GEMLI_items[['cell_fate_analysis']][1:10,] 
+  cell.ID            clone.ID cell.type cell.fate       
+ AAACCCACATCCGTGG-3     2826 DCIS      NA_DCIS      
+ AAACCCATCCTTATAC-4       54 DCIS      asym_DCIS    
+ AAACGAACAACACGTT-2     1466 inv_tumor sym_inv_tumor
+ AAAGAACCAACAGCTT-3      726 DCIS      sym_DCIS     
+ AAAGAACGTCGAATGG-2     1467 inv_tumor sym_inv_tumor
+ AAAGGATCAGAGTTCT-4     4383 inv_tumor sym_inv_tumor
+ AAAGGATTCGCCAATA-4     4385 inv_tumor sym_inv_tumor
+ AAAGGGCCAGTCGGAA-3      754 inv_tumor sym_inv_tumor
+ AAAGGGCGTAAGAACT-1       10 inv_tumor sym_inv_tumor
+ AAAGGGCGTAGTTCCA-1       11 inv_tumor sym_inv_tumor
+>
+> table(GEMLI_items[['cell_fate_analysis']]$cell.fate)
+     asym_DCIS asym_inv_tumor        NA_DCIS       sym_DCIS  sym_inv_tumor 
+            77             96            225            273            744
+```
+
+### Call and visualize DEG for cells in specific lineage types
+Based on the symmetric and asymmetric lineages we extracted, we will now call differentially expressed genes (DEG) specific for cells of specific cell types in specific lineages types. To analyze the transition from DCIS to invasive breast cancer, we notable call DEG for DCIS cells in asymmetric lineages and symmetric lineages. This are genes specific to DCIS cells at the start of the transition. 
+
+```
+> GEMLI_items<-cell_fate_DEG_calling(GEMLI_items, ident1="asym_inv_tumor", ident2="asym_DCIS", min.pct=0.05, logfc.threshold=0.1)
+>
+> GEMLI_items[['DEG']][1:10,] 
+                p_val avg_log2FC pct.1 pct.2    p_val_adj
+SERPINA3 1.170944e-10 -2.2230424 0.156 0.610 2.953003e-06
+TFF1     1.202973e-10 -2.3905248 0.510 0.883 3.033778e-06
+TFF3     2.790552e-10 -1.5620689 0.615 0.935 7.037494e-06
+CEACAM6  1.155075e-09 -1.9837694 0.250 0.675 2.912984e-05
+DCAF7    1.454169e-09  0.7710326 0.990 1.000 3.667269e-05
+AGR3     1.639463e-09 -1.7940736 0.177 0.584 4.134561e-05
+IGF1R    2.072746e-09 -1.9972668 0.250 0.662 5.227258e-05
+ESR1     4.574351e-09 -1.9617280 0.417 0.818 1.153606e-04
+MUCL1    7.090545e-09 -1.9801027 0.198 0.623 1.788164e-04
+THSD4    9.808146e-09 -1.8074544 0.542 0.870 2.473516e-04
+>
+> DEG_volcano_plot(GEMLI_items, name1="Asym_inv_tumor", name2="Asym_DCIS")
+```
+
 
 
 
