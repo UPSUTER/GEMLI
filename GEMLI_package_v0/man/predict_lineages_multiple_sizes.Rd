@@ -8,7 +8,7 @@ predict_lineages_multiple_sizes
 This function predicts cell lineages from single-cell RNA-sequencing data with sizes ranging from a minimal to a maximal value. The prediction of lineages is performed as for the ‘predict_lineages’ function not only for a single desired lineage size, but independently for all cluster sizes in between a minimal and maximal value. For each prediction, the predicted lineage information is generated as for the ‘prediction_to_lineage_information function’. The function generates the input for the function ‘cluster_stability_plot’, which allows to estimate the size of multicellular structures present in the single-cell RNA-sequencing data.
   }
 \usage{
-predict_lineages_multiple_sizes(GEMLI_items, repetitions=10, sample_size=(2/3), minimal_maximal_cluster_size=c(2,50), N=2, fast=TRUE, cutoff=5)
+predict_lineages_multiple_sizes(GEMLI_items, repetitions=10, sample_size=(2/3), minimal_maximal_cluster_size=c(2,50), N=2, fast=FALSE, cutoff=5)
 }
 \arguments{
   \item{
@@ -27,7 +27,7 @@ predict_lineages_multiple_sizes(GEMLI_items, repetitions=10, sample_size=(2/3), 
   N}{'N' describes in how many branches the data matrix is split in each clustering step. Higher numbers speed up the clustering but can negatively impact the result of the prediction. It is highly recommended to keep the default value, 2.
   }
   \item{
-  fast}{'fast' =TRUE uses the HiClimR package for calculating correlations
+  fast}{'fast' =TRUE uses the HiClimR package for calculating correlations. This makes predictions faster but reduces precision. The default value is FALSE.
   }
   \item{
   cutoff}{'cutoff' specifies the confidence score at which a cell pair is considered to be part of the same lineage. High values (e.g. 70-100) provide high precision but lower sensitivity. Low values (e.g. 30-60) provide higher sensitivity but lower precision.
