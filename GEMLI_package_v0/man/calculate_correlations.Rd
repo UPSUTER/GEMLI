@@ -5,24 +5,24 @@
 calculate_correlations
 }
 \description{
-This function provides a fast way to calculate Spearman's ranked correlation or Pearson's correlation.
+This function provides a fast way to calculate Spearmans ranked correlation or Pearsons correlation.
 }
 \usage{
-calculate_correlations(data_matrix)
+calculate_correlations(data_matrix, fast=FALSE)
 }
 \arguments{
   \item{
   data_matrix}{'data_matrix' is a gene expression matrix where rownames are genes (features) and column names are cell IDs (samples).
   }
   \item{
-  fast}{'fast' = FALSE will calculate the Spearman rank correlation, fast = TRUE will make use of the package HiClimR for the calculation of a Pearson correlation. The calculation of the Pearson correlation is faster than the calculation of Spearman rank correlation, however precision of lienage predictions will be slighlty reduced using the Pearson correlation. 
+  fast}{'fast' = FALSE will calculate the Spearman rank correlation, fast = TRUE will make use of the package HiClimR for the calculation of a Pearson correlation. The calculation of the Pearson correlation is faster than the calculation of Spearman rank correlation, however precision of lineage predictions will be slighlty reduced using the Pearson correlation. The default value is FALSE. 
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-The output is a cell by cell matrix with each value representing the rho value of Spearman's ranked correlation.
+The output is a cell by cell matrix with each value representing the rho value of Spearmans ranked correlation.
 }
 \references{
 %% ~put references to the literature/web site here ~
