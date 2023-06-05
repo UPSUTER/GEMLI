@@ -1,4 +1,4 @@
-predict_lineages <- function(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=TRUE) # check
+predict_lineages <- function(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3), N=2, fast=FALSE) # check
 {
   data_matrix = GEMLI_items[['gene_expression']]
   marker_genes = potential_markers(data_matrix)
