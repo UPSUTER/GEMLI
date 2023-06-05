@@ -8,7 +8,7 @@ quantify_clusters_iterative
 This function clusters the input matrix repeatedly until a desired cluster size is reached.
 }
 \usage{
-quantify_clusters_iterative(data_matrix, marker_genes, N=2, fast=TRUE)
+quantify_clusters_iterative(data_matrix, marker_genes, N=2, fast=FALSE)
 }
 \arguments{
   \item{
@@ -21,7 +21,7 @@ quantify_clusters_iterative(data_matrix, marker_genes, N=2, fast=TRUE)
   N}{'N' describes in how many branches the data matrix is split in each clustering step. Higher numbers speed up the clustering but can negatively impact the result of the prediction. It is highly recommended to keep the default value, 2.
   }
   \item{
-  fast}{'fast' =TRUE uses the HiClimR package for calculating correlations
+  fast}{'fast' =TRUE uses the HiClimR package for calculating correlations. This makes the function faster but less precise. The default is FALSE.
   }
 }
 \details{
