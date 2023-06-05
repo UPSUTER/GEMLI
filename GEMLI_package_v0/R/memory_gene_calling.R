@@ -1,4 +1,4 @@
-markers_from_lineages <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_median=T, use_barcodes=F)
+memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_median=T, use_barcodes=F)
 {
   markers_by_cvsq_of_lineage_means <- function(data_matrix, lineage_dict, valid_lineage_sizes=(2:5), use_median=T)
   {
@@ -24,7 +24,7 @@ markers_from_lineages <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_me
     return(sort(lineage_center_variation[filter], decreasing=T))
   }
   data_matrix = GEMLI_items[['gene_expression']]
-  if (use_barcodes) {lineage_dict = GEMLI_items[['bardoces']]} else {lineage_dict = GEMLI_items[['predicted_lineages']]}
+  if (use_barcodes) {lineage_dict = GEMLI_items[['barcodes']]} else {lineage_dict = GEMLI_items[['predicted_lineages']]}
   lineage_center_variation = markers_by_cvsq_of_lineage_means(data_matrix, lineage_dict, valid_lineage_sizes=valid_lineage_sizes, use_median=use_median)
 
   data_matrix_control = matrix(NA, ncol=100, nrow=nrow(data_matrix)); rownames(data_matrix_control) = rownames(data_matrix)
@@ -40,6 +40,6 @@ markers_from_lineages <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_me
   marker_table = data.frame(cbind(lineage_center_variation[shared_genes], markers_pvalue[shared_genes])); rownames(marker_table) = shared_genes; colnames(marker_table) = c("var","p")
   marker_table = marker_table[with(marker_table, order(p, -var)),]
 
-  GEMLI_items[["lineage_markers"]] = marker_table
+  GEMLI_items[["memory_genes"]] = marker_table
   return(GEMLI_items)
 }
