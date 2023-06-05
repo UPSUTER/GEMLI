@@ -1,18 +1,18 @@
-\name{markers_from_lineages}
-\alias{markers_from_lineages}
+\name{memory_gene_calling}
+\alias{memory_gene_calling}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-markers_from_lineages
+memory_gene_calling
 }
 \description{
-This function identifies lineage markers based on gene expression variability across lineages (either from predictions or from barcodes) from single-cell RNA-sequencing data.
+This function identifies memory genes (or lineage markers) based on gene expression variability across lineages (either from predictions or from barcodes) from single-cell RNA-sequencing data.
 }
 \usage{
-markers_from_lineages(GEMLI_items)
+memory_gene_calling(GEMLI_items)
 }
 \arguments{
   \item{
-  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'markers_from_lineages' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'. It also needs to contain a vector of lineages (values are the lineages and names are the cell IDs) either from predictions or barcodes. If it is run on predictions 'GEMLI_items' needs to contain a vector named 'predicted_lineages'. If it is run on bracodes 'GEMLI_items' needs to contain a vector named 'barcodes'.
+  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'memory_gene_calling' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'. It also needs to contain a vector of lineages (values are the lineages and names are the cell IDs) either from predictions or barcodes. If it is run on predictions 'GEMLI_items' needs to contain a vector named 'predicted_lineages'. If it is run on bracodes 'GEMLI_items' needs to contain a vector named 'barcodes'.
   }
   \item{
   valid_lineage_sizes}{'valid_lineage_sizes' specifies the range of lineage sizes to be included. Depending on the question to be investigated it can be beneficial to either restrict this to small lineages or large lineages respectively. Default is small lineage from 2 to 5 cells (2:5).
@@ -28,7 +28,7 @@ markers_from_lineages(GEMLI_items)
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-'markers_from_lineages' yields a table of gene names or IDs of potential lineage marker genes (row names), as well as their variability ('var') across lineages and p-values ('p').
+'memory_gene_calling' yields a table of gene names or IDs of potential lineage marker genes (row names), as well as their variability ('var') across lineages and a p-values ('p'). This table is stored un the GEMLI_items list as element 'memory_genes'.
 }
 \references{
 %% ~put references to the literature/web site here ~
