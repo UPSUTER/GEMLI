@@ -269,27 +269,30 @@ We extract now predicted cell lineages with members in only one cell type (symme
 ```
 
 ### Call and visualize DEG for cells in specific lineage types
-Based on the symmetric and asymmetric lineages we extracted, we will now call differentially expressed genes (DEG) specific for cells of specific cell types in specific lineages types. To analyze the transition from DCIS to invasive breast cancer, we notable call DEG for DCIS cells in asymmetric lineages and symmetric lineages. This are genes specific to DCIS cells at the start of the transition. 
+Based on the symmetric and asymmetric lineages we extracted, we will now call differentially expressed genes (DEG) specific for cells of specific cell types in specific lineages types. To analyze the transition from DCIS to invasive breast cancer, we notable call DEG for DCIS cells in asymmetric and symmetric lineages. These are genes specific to DCIS cells at the start of the transition. 
 
 ```
-> GEMLI_items<-cell_fate_DEG_calling(GEMLI_items, ident1="asym_inv_tumor", ident2="asym_DCIS", min.pct=0.05, logfc.threshold=0.1)
+> GEMLI_items<-cell_fate_DEG_calling(GEMLI_items, ident1="sym_DCIS", ident2="asym_DCIS", min.pct=0.05, logfc.threshold=0.1)
 >
 > GEMLI_items[['DEG']][1:10,] 
-                p_val avg_log2FC pct.1 pct.2    p_val_adj
-SERPINA3 1.170944e-10 -2.2230424 0.156 0.610 2.953003e-06
-TFF1     1.202973e-10 -2.3905248 0.510 0.883 3.033778e-06
-TFF3     2.790552e-10 -1.5620689 0.615 0.935 7.037494e-06
-CEACAM6  1.155075e-09 -1.9837694 0.250 0.675 2.912984e-05
-DCAF7    1.454169e-09  0.7710326 0.990 1.000 3.667269e-05
-AGR3     1.639463e-09 -1.7940736 0.177 0.584 4.134561e-05
-IGF1R    2.072746e-09 -1.9972668 0.250 0.662 5.227258e-05
-ESR1     4.574351e-09 -1.9617280 0.417 0.818 1.153606e-04
-MUCL1    7.090545e-09 -1.9801027 0.198 0.623 1.788164e-04
-THSD4    9.808146e-09 -1.8074544 0.542 0.870 2.473516e-04
+                 p_val avg_log2FC pct.1 pct.2    p_val_adj
+DCAF7     4.308339e-15 -1.0275658 0.985 1.000 1.086520e-10
+NRAS      2.630887e-11 -1.2821469 0.516 0.766 6.634834e-07
+LINC01999 2.824883e-11 -1.4817245 0.736 0.961 7.124072e-07
+CSDE1     7.762498e-10 -0.8055031 0.952 0.974 1.957624e-05
+S100A10   3.676826e-09  1.1729996 0.839 0.610 9.272588e-05
+MAN1A2    8.900499e-09 -0.8487466 0.868 0.961 2.244617e-04
+APPBP2-DT 9.767327e-09 -1.0797417 0.495 0.792 2.463222e-04
+PVALB     9.882215e-09 -1.1913536 0.304 0.623 2.492196e-04
+CDH2      1.169570e-08 -1.6410588 0.264 0.558 2.949538e-04
+CSTA      2.204180e-08 -1.0506112 0.198 0.506 5.558721e-04
 >
-> DEG_volcano_plot(GEMLI_items, name1="Asym_inv_tumor", name2="Asym_DCIS")
+> DEG_volcano_plot(GEMLI_items, name1="Sym_DCIS", name2="Asym_DCIS")
 ```
 
+<p align="center">
+  <img width="700" height="600" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMIL_GitHub_volcano_sym_DCIS_asym_DCIS.png">
+</p>
 
 
 
