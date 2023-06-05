@@ -81,7 +81,7 @@ The `test_lineage_prediction` function again takes our `GEMLI_items` as input. I
 90   46     0 1.00000000   0.1678832
 100  34     0 1.00000000   0.1240876
 >
-> test_lineages(GEMLI_items, plot_results=T)
+> GEMLI_items = test_lineages(GEMLI_items, plot_results=T)
 ```
 
 <p align="center">
