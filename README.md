@@ -223,7 +223,7 @@ Specific colors can be assigned to specific cell types by adding a dataframe wit
 
 ## Example 3: Cell fate decisions in human breast cancer
 
-For our third example we'll be looking at cell fate decisions in a scRNA-seq dataset of human breast cancer encompassing both ductal carcinoma in situ (DCIS) and invasive tumor (inv_tumor) cells. We'll be working with a subset of this data for fast processing. No ground truth is available. We will study the fate transition from DCIS to invasive tumor cells. The data is derived from a public 10X Genomics dataset.
+For our third example we'll be looking at cell fate decisions in a scRNA-seq dataset of human breast cancer encompassing both ductal carcinoma in situ (DCIS) and invasive tumor (inv_tumor) cells. We'll be working with a subset of this data for fast processing. No ground truth is available. We will study the fate transition from DCIS to invasive tumor cells. The data is derived from a public 10X Genomics dataset associated to the following preprint bioRxiv 2022.10.06.510405; doi: https://doi.org/10.1101/2022.10.06.510405 and downloaded from https://www.10xgenomics.com/products/xenium-in-situ/preview-dataset-human-breast (April 2023).
 
 ### Load example data.
 First we load the example data. We already predicted the lineages and extracted the predicted lineages using GEMLI. Furthermore we load the previously generated cell type information for all cells in the dataset. 
