@@ -291,7 +291,7 @@ CSTA      2.204180e-08 -1.0506112 0.198 0.506 5.558721e-04
 ```
 
 <p align="center">
-  <img width="700" height="600" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMIL_GitHub_volcano_sym_DCIS_asym_DCIS.png">
+  <img width="500" height="430" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMIL_GitHub_volcano_sym_DCIS_asym_DCIS.png">
 </p>
 
 
