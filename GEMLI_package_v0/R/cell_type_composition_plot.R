@@ -6,8 +6,10 @@ cell_type_composition_plot <- function(GEMLI_items, ground_truth=T, cell_type_co
     color<-base_colors[rank(unique(GEMLI_items[['cell_type']]$cell.type))]
     GEMLI_items[['cell_type_color']] = data.frame(cell.type, color)} 
   
-  if (ground_truth){Lookup<-merge(as.data.frame(GEMLI_items[['barcodes']]), GEMLI_items[['cell_type']], by="cell.ID", all=TRUE)} else {
-    Lookup<-merge(as.data.frame(GEMLI_items[['predicted_lineage_table']]), GEMLI_items[['cell_type']], by="cell.ID", all=TRUE)}
+ if (ground_truth){cell.ID<-names(GEMLI_items[['barcodes']]); clone.ID<-unname(GEMLI_items[['barcodes']]); GT<-as.data.frame(cbind(clone.ID,cell.ID));
+  Lookup<-merge(GT, GEMLI_items[['cell_type']], by="cell.ID", all=TRUE)} else {
+    Lookup<-merge(as.data.frame(GEMLI_items[['predicted_lineage_table']]), GEMLI_items[['cell_type']], by="cell.ID", all=TRUE)
+    }
   
   if (type == "bubble"){
     Lookup <- Lookup %>% group_by(clone.ID, cell.type) %>% summarise(cnt = n()) %>% mutate(freq = round(cnt / sum(cnt), 3)); Lookup <- cast(Lookup, clone.ID~cell.type, value="freq"); 
