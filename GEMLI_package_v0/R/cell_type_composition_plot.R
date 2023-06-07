@@ -20,7 +20,7 @@ cell_type_composition_plot <- function(GEMLI_items, ground_truth=T, cell_type_co
     Lookup_list <- split(Lookup$clone.ID, Lookup$cell.type)
     p<-upset(fromList(Lookup_list), order.by = "freq", nsets = length(Lookup_list), 
           sets.x.label = "Lineages in cell type", mainbar.y.label = "Number of lineages",
-          nintersects = NA, intersections = intersections, point.size=5, mb.ratio = c(0.5, 0.5), text.scale = 2,
+          nintersects = NA, intersections = NULL, point.size=5, mb.ratio = c(0.5, 0.5), text.scale = 2,
           set_size.show = TRUE, set_size.numbers_size = 7, set_size.scale_max = length(unique(Lookup$clone.ID)))}
 
   if (type == "plain"){
