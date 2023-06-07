@@ -12,7 +12,7 @@ memory_gene_calling(GEMLI_items)
 }
 \arguments{
   \item{
-  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'memory_gene_calling' on predictions 'GEMLI_items' needs to contain an ' vector named 'predicted_lineages'. If it is run on bracodes 'GEMLI_items' needs to contain a vector named 'barcodes'.
+  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'memory_gene_calling' GEMLI_items must contain a 'gene_expression' element. To run 'memory_gene_calling' on predictions 'GEMLI_items' needs to contain a 'predicted_lineage_table' elment. If it is run on bracodes 'GEMLI_items' needs to contain a 'barcodes' element. The ‘gene_expression’ element is a quality controlled and normalised gene expression matrix where rownames are genes (features) and column names are cell IDs (cell barcodes). The 'predicted_lineage_table' is generated using the function prediction_to_lineage_information.   
   }
   \item{
   valid_lineage_sizes}{'valid_lineage_sizes' specifies the range of lineage sizes to be included. Depending on the question to be investigated it can be beneficial to either restrict this to small lineages or large lineages respectively. Default is small lineage from 2 to 5 cells (2:5).
