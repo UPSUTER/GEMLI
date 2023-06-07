@@ -12,7 +12,7 @@ memory_gene_calling(GEMLI_items)
 }
 \arguments{
   \item{
-  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'memory_gene_calling' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'. It also needs to contain a vector of lineages (values are the lineages and names are the cell IDs) either from predictions or barcodes. If it is run on predictions 'GEMLI_items' needs to contain a vector named 'predicted_lineages'. If it is run on bracodes 'GEMLI_items' needs to contain a vector named 'barcodes'.
+  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'memory_gene_calling' on predictions 'GEMLI_items' needs to contain an ' vector named 'predicted_lineages'. If it is run on bracodes 'GEMLI_items' needs to contain a vector named 'barcodes'.
   }
   \item{
   valid_lineage_sizes}{'valid_lineage_sizes' specifies the range of lineage sizes to be included. Depending on the question to be investigated it can be beneficial to either restrict this to small lineages or large lineages respectively. Default is small lineage from 2 to 5 cells (2:5).
