@@ -1,4 +1,4 @@
-memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_median=T, use_barcodes=F)
+memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_median=T, use_barcodes=F, cell_fate)
 {
   markers_by_cvsq_of_lineage_means <- function(data_matrix, lineage_dict, valid_lineage_sizes=(2:5), use_median=T)
   {
@@ -24,17 +24,23 @@ memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_medi
     return(sort(lineage_center_variation[filter], decreasing=T))
   }
   data_matrix = GEMLI_items[['gene_expression']]
-  if (use_barcodes) {lineage_dict = GEMLI_items[['barcodes']]} else {lineage_dict = GEMLI_items[['predicted_lineages']]}
+  
+   if (use_barcodes) {lineage_dict = GEMLI_items[['barcodes']]} else {
+    if (length(GEMLI_items[['predicted_lineages']])>0){lineage_dict = GEMLI_items[['predicted_lineages']]} else {
+      lineage_dict = GEMLI_items[['predicted_lineage_table']]$clone.ID; names(lineage_dict) = GEMLI_items[['predicted_lineage_table']]$cell.ID}}
+  if (hasArg(cell_fate)){match<-GEMLI_items[['cell_fate_analysis']][GEMLI_items[['cell_fate_analysis']]$cell.fate ==cell_fate,]
+    lineage_dict=lineage_dict[names(lineage_dict)%in% match$cell.ID]}
+  
   lineage_center_variation = markers_by_cvsq_of_lineage_means(data_matrix, lineage_dict, valid_lineage_sizes=valid_lineage_sizes, use_median=use_median)
 
-  data_matrix_control = matrix(NA, ncol=100, nrow=nrow(data_matrix)); rownames(data_matrix_control) = rownames(data_matrix)
-  for (i in c(1:100))
+  data_matrix_control = matrix(NA, ncol=20, nrow=nrow(data_matrix)); rownames(data_matrix_control) = rownames(data_matrix)
+  for (i in c(1:20))
   {
     lineage_dict_sampled = lineage_dict; names(lineage_dict_sampled) = sample(names(lineage_dict))
     tmp = markers_by_cvsq_of_lineage_means(as.matrix(data_matrix), lineage_dict_sampled, valid_lineage_sizes=valid_lineage_sizes, use_median=use_median)
     data_matrix_control[names(tmp),i] = tmp
   }
-  markers_pvalue = rowSums(data_matrix_control[intersect(rownames(data_matrix_control), names(lineage_center_variation)),]>lineage_center_variation[intersect(rownames(data_matrix_control), names(lineage_center_variation))], na.rm=T)/100
+  markers_pvalue = rowSums(data_matrix_control[intersect(rownames(data_matrix_control), names(lineage_center_variation)),]>lineage_center_variation[intersect(rownames(data_matrix_control), names(lineage_center_variation))], na.rm=T)/20
 
   shared_genes = intersect(names(lineage_center_variation), names(markers_pvalue))
   marker_table = data.frame(cbind(lineage_center_variation[shared_genes], markers_pvalue[shared_genes])); rownames(marker_table) = shared_genes; colnames(marker_table) = c("var","p")
