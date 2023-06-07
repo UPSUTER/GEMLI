@@ -5,7 +5,7 @@
 memory_gene_calling
 }
 \description{
-This function identifies memory genes (or lineage markers) based on gene expression variability across lineages (either from predictions or from barcodes) from single-cell RNA-sequencing data.
+This function identifies memory genes (or lineage markers) based on gene expression variability across lineages (either from predictions or from ground truth) from single-cell RNA-sequencing data.
 }
 \usage{
 memory_gene_calling(GEMLI_items)
