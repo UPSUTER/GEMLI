@@ -23,6 +23,9 @@ memory_gene_calling(GEMLI_items)
   \item{
   use_barcodes}{'use_barcodes' specifies whether to call lineage markers on barcodes instead of predictions. Default is 'false'/'F'.
   }
+  \item{
+  cell_fate}{'cell_fate' specifies 
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
