@@ -1,4 +1,4 @@
-cell_type_composition_plot <- function(GEMLI_items, ground_truth=T, cell_type_colors=F, type, intersections=NULL)
+cell_type_composition_plot <- function(GEMLI_items, ground_truth=F, cell_type_colors=F, type, intersections=NULL)
 {
   base_colors = rep(c('#a50026','#d73027','#f46d43','#fdae61','#fee090','#e0f3f8','#abd9e9','#74add1','#4575b4','#313695','#40004b','#762a83','#9970ab','#c2a5cf','#e7d4e8','#d9f0d3','#a6dba0','#5aae61','#1b7837','#00441b','#543005','#8c510a','#bf812d','#dfc27d','#f6e8c3','#e0e0e0','#bababa','#878787','#4d4d4d','#1a1a1a'), 100)
   if (cell_type_colors==F){
