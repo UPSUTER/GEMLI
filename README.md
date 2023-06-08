@@ -258,7 +258,7 @@ inv_tumor         203
 ```
 
 <p align="center">
-  <img width="250" height="100" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_cancer_lineage_overview_upsetR.png">
+  <img width="450" height="200" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_cancer_lineage_overview_upsetR.png">
 </p>
 
 ### Extract symmetric and asymmetric cell lineages
