@@ -13,6 +13,7 @@ cell_type_composition_plot(GEMLI_items, ground_truth=F, cell_type_colors=F, type
 \arguments{
   \item{
   GEMLI_items}{GEMLI_items is a list of GEMLI inputs and outputs. To run 'cell_type_composition_plot' it should contain a 'barcodes' (composition of ground truth) or 'predicted_lineage_table' (composition of predicted lineages) element. The 'predicted_lineage_table' is the output of the 'prediction_to_lineage_info' function. 
+  }
   \item{
   ground_truth{==T/TRUE indicates that the composition of ground truth lineages is analyzed. If 'ground_truth'==F, the compositionof predicted lineages is analyzed. Default is F.
   }
