@@ -230,7 +230,7 @@ To get an even more quantitative overview of the cell type composition of indivi
 
 ```
 <p align="left">
-  <img width="450" height="200" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_lineage_overview_bubble.png">
+  <img width="200" height="350" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_lineage_overview_bubble.png">
 </p>
 
 
@@ -259,7 +259,7 @@ Stem                                       3
 TA                                         1
 ```
 <p align="centre">
-  <img width="450" height="200" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_lineage_overview_upsetR.png">
+  <img width="400" height="300" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_lineage_overview_upsetR.png">
 </p>
 
 
