@@ -12,7 +12,7 @@ cell_type_composition_plot <- function(GEMLI_items, ground_truth=T, cell_type_co
     }
   
   if (type == "bubble"){
-    Lookup <- Lookup %>% group_by(clone.ID, cell.type) %>% summarise(cnt = n()) %>% mutate(freq = round(cnt / sum(cnt), 3)); Lookup <- cast(Lookup, clone.ID~cell.type, value="freq"); 
+    Lookup <- Lookup %>% group_by(clone.ID, cell.type) %>% summarise(cnt = n()) %>% mutate(freq = round(cnt / sum(cnt), 3)); Lookup <- reshape2::cast(Lookup, clone.ID~cell.type, value="freq"); 
     base_colors = GEMLI_items[['cell_type_color']]$color[match(colnames(Lookup[,2:length(Lookup)]),GEMLI_items[['cell_type_color']]$cell.type)]
     p<-Lookup %>% gather(cell.type, percentage, -clone.ID)%>% ggplot(group=cell.type) + geom_point(aes(x = cell.type, y = clone.ID, size = percentage, col= cell.type))+ theme_classic()+ scale_colour_manual(values = base_colors)}
   
