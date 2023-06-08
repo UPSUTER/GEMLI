@@ -221,6 +221,49 @@ Specific colors can be assigned to specific cell types by adding a dataframe wit
   <img width="430" height="300" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_network_70_custom_cell_type_colors.png">
 </p>
 
+### Get overview of crypt cell type composition
+To get an even more quantitative overview of the cell type composition of individual intestinal crypts, we can use the function 'cell_type_composition_plot'. To do so we have to run the 'prediction_to_lineage_information' function first.
+
+```
+> GEMLI_items_crypts = prediction_to_lineage_information(GEMLI_items_crypts, cutoff=50)
+> cell_type_composition_plot(GEMLI_items_crypts, cell_type_colors=T, type=c("bubble"))
+
+```
+<p align="left">
+  <img width="450" height="200" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_lineage_overview_bubble.png">
+</p>
+
+
+With other 'type' parameters we can output using the same function, and upsetR or plain table of the lineage numbers with different cell type compositions.
+
+```
+> cell_type_composition_plot(GEMLI_items_crypts, ground_truth=F, cell_type_colors=T, type=c("upsetR")) 
+> cell_type_composition_plot(GEMLI_items_crypts, ground_truth=F, cell_type_colors=T, type=c("plain"))
+combi                                      n
+Entero                                     1
+Entero__Goblet__PIC__Stem                  1
+Entero__Goblet__PIC__Stem__TA              1
+Entero__PIC__Paneth__Regstem__Stem__TA     1
+Entero__Stem__TA                           1
+Goblet__PIC__Regstem__Stem__TA             1
+Goblet__PIC__Stem__TA                      1
+Goblet__Regstem__Stem__TA                  1
+Goblet__Stem__TA                           2
+PIC                                        3
+PIC__Stem__TA                              2
+Paneth                                     2
+Paneth__Regstem__Stem                      1
+Paneth__Stem                               1
+Regstem__Stem                              1
+Stem                                       3
+TA                                         1
+```
+<p align="centre">
+  <img width="450" height="200" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_crypts_lineage_overview_upsetR.png">
+</p>
+
+
+
 ## Example 3: Cell fate decisions in human breast cancer
 
 For our third example we'll be looking at cell fate decisions in a scRNA-seq dataset of human breast cancer encompassing both ductal carcinoma in situ (DCIS) and invasive tumor (inv_tumor) cells. We'll be working with a subset of this data for fast processing. No ground truth is available. We will study the fate transition from DCIS to invasive tumor cells. The data is derived from a public 10X Genomics dataset associated to the following preprint bioRxiv 2022.10.06.510405; doi: https://doi.org/10.1101/2022.10.06.510405 and downloaded from https://www.10xgenomics.com/products/xenium-in-situ/preview-dataset-human-breast (April 2023).
