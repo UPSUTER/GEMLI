@@ -244,6 +244,23 @@ We then create a GEMLI items list. This list is used to store the data, and crea
 > GEMLI_items[['cell_type']] = Cancer_annotation
 ```
 
+### Get an overview of symmetric and asymmetric cell lineages
+To get an overview of the symmetric and asymmetric cell lineages present in the data, we can use the function 'cell_type_composition_plot' with parameter 'type' ="plain" or "upsetR". 
+
+```
+> cell_type_composition_plot(GEMLI_items, type=c("plain"))
+combi               n
+DCIS              250
+DCIS__inv_tumor    25
+inv_tumor         203
+>
+> cell_type_composition_plot(GEMLI_items, type=c("upsetR"))
+```
+
+<p align="center">
+  <img width="250" height="100" src="https://github.com/UPSUTER/GEMLI/blob/main/Example/GEMLI_GitHub_cancer_lineage_overview_upsetR.png">
+</p>
+
 ### Extract symmetric and asymmetric cell lineages
 We extract now predicted cell lineages with members in only one cell type (symmetric) or in two or more cell types (asymmetric). To analyze the transition from DCIS to invasive breast cancer we will extract symmetric DCIS, asymmetric DCIS and invasive tumor, and symmetric inv_tumor lineages. To exclude lineages with a too large asymmetry, we set a threshold to extract asymmetric lineages containing at least 10% of each cell type. The function output is stored in GEMLI_items 'cell_fate_analysis' item. It is a data frame with a column cell.fate with label sym or asym and cell type separated by an underscore. This cell.fate designation allows to subsequently analyze only a specific cell type in asymmetric cell lineages.
 
