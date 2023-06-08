@@ -14,7 +14,8 @@ Imports:
     Seurat (>= 4.3.0),
     ggplot2 (>= 3.4.2),
     ggrepel (>= 0.9.3),
-    clustree (>= 0.5.0)
+    clustree (>= 0.5.0),
+    UpSetR (>= 1.4.0)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
