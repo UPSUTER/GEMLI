@@ -2,8 +2,7 @@ extract_cell_fate_lineages<- function(GEMLI_items, selection, unique=FALSE, thre
 {
   Lookup<-merge(as.data.frame(GEMLI_items[['predicted_lineage_table']]), GEMLI_items[['cell_type']], by="cell.ID", all=TRUE); Lookup$cell.fate<-NA
   if (unique){ 
-  Lookup<-Lookup %>% group_by(clone.ID) %>% mutate(cell.fate=case_when((n_distinct(cell.type)==length(selection) & (cell.type == selection))~ "asym", (n_distinct(cell.type)==1& cell.type %in% selection & n_distinct(cell.ID)>1)~"sym"));
-  Lookup<-Lookup %>% group_by(clone.ID) %>% mutate(cell.fate=ifelse(n_distinct(cell.fate >1), cell.fate, NA))} 
+  Lookup<-Lookup %>% group_by(clone.ID) %>% mutate(cell.fate=case_when((n_distinct(cell.type)==length(selection)& all(cell.type %in% selection))~ "asym", (n_distinct(cell.type)==1& all(cell.type %in% selection) & n_distinct(cell.ID)>1)~"sym"))
   else {
   Lookup<-Lookup %>% group_by(clone.ID) %>% mutate(cell.fate=case_when((n_distinct(cell.type)>=length(selection) & (cell.type %in% selection))~"asym",(n_distinct(cell.type)>=1 & (cell.type %in% selection) & (cell.fate %in% NA))~"sym"))
   Lookup<-Lookup %>% group_by(cell.fate, clone.ID) %>% mutate(cell.fate=case_when((n_distinct(cell.ID)==1)~NA, TRUE~cell.fate))
