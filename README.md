@@ -125,7 +125,7 @@ Now we can extract the lineage information with the `prediction_to_lineage_infor
 [4,] "AAGCCATGTTCCACGG-1" "4"
 [5,] "AAGCGAGGTACGGCAA-1" "5"
 >
-> GEMLI_items$predicted_lineages[1:5,]
+> GEMLI_items$predicted_lineages[1:5]
 AAACGAACAGGTGTGA-1 AAAGGTAGTTGCTTGA-1 AACCACAAGTTTGTCG-1 AAGCCATGTTCCACGG-1 AAGCGAGGTACGGCAA-1
                  1                  2                  3                  4                  5
 ```
