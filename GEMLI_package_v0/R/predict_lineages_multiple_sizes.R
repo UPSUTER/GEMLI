@@ -1,4 +1,4 @@
-predict_lineages_multiple_sizes <- function(GEMLI_items, repetitions=10, sample_size=(2/3), minimal_maximal_cluster_size=c(2,50), N=2, cutoff=5) # check
+predict_lineages_multiple_sizes <- function(GEMLI_items, repetitions=10, sample_size=(2/3), minimal_maximal_cluster_size=c(2,50), cutoff=5) # check
 {
   # split out the minimal_maximal_cluster_size into vectors encompassing all combis between the min and max value
   # for each of the vectors then generate the lineage prediction and combine them into one table
