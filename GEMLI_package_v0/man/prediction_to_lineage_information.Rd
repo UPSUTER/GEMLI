@@ -8,14 +8,14 @@ prediction_to_lineage_information
 This transforms a cell by cell matrix of confidence scores as created by the 'predict_lineages' function into a table (or vector, if specified) of predicted lineages.
 }
 \usage{
-prediction_to_lineage_information(GEMLI_items)
+prediction_to_lineage_information(GEMLI_items, cutoff=50)
 }
 \arguments{
   \item{
   GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'test_lineages' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'.
   }
   \item{
-  cutoff}{'cutoff' specifies the confidence score at which a cell pair is considered to be part of the same lineage. High values (e.g. 70-100) provide high precision but lower sensitivity. Low values (e.g. 30-60) provide higher sensitivity but lower precision.
+  cutoff}{'cutoff' specifies the confidence score at which a cell pair is considered to be part of the same lineage. High values (e.g. 70-100) provide high precision but lower sensitivity. Low values (e.g. 30-60) provide higher sensitivity but lower precision. The default value is 50.
   }
 }
 \details{
