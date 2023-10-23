@@ -8,7 +8,7 @@ cell_fate_DEG_calling
 This function calls differential expressed genes (DEG) between cells of specific cell types being members of asymmetric cell lineages (containing members of two or more cell types of interest) or members of symmetric cell lineages (contains members of only one cell type of interest). DEG calling is performed using Seurats FindMarkers function.
 }
 \usage{
-cell_fate_DEG_calling(GEMLI_items, ident1, ident2, min-pct=0.05, logfc.threshold=0.1)
+cell_fate_DEG_calling(GEMLI_items, ident1, ident2, min.pct=0.05, logfc.threshold=0.1)
 }
 \arguments{
   \item{
