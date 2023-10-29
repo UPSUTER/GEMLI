@@ -19,7 +19,7 @@ lineage_predictions_matrix, lineage_dict_bc, valid_fam_sizes=(1:5), max_interval
   valid_fam_sizes}{'valid_fam_sizes' specifies a resonable range for lineage sizes.
   }
   \item{
-  max_interval}{'max_interval' is the number of iterations used in the 'predict_lineages' function. The default value is 100.
+  max_interval}{'max_interval' is the number of repetitions used in the 'predict_lineages' function. The default value is 100.
   }
   \item{
   plot_results}{'plot_results' specifies whether the results of the test are visualized (plotted).
