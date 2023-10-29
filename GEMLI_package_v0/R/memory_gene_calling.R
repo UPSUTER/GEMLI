@@ -25,7 +25,7 @@ memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_medi
   }
   data_matrix = GEMLI_items[['gene_expression']]
   
-   if (use_barcodes) {lineage_dict = GEMLI_items[['barcodes']]} else {
+   if (ground_truth) {lineage_dict = GEMLI_items[['barcodes']]} else {
     if (length(GEMLI_items[['predicted_lineages']])>0){lineage_dict = GEMLI_items[['predicted_lineages']]} else {
       lineage_dict = GEMLI_items[['predicted_lineage_table']]$clone.ID; names(lineage_dict) = GEMLI_items[['predicted_lineage_table']]$cell.ID}}
   if (hasArg(cell_fate)){match<-GEMLI_items[['cell_fate_analysis']][GEMLI_items[['cell_fate_analysis']]$cell.fate ==cell_fate,]
