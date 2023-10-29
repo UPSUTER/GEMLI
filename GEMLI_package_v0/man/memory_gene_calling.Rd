@@ -8,7 +8,7 @@ memory_gene_calling
 This function identifies memory genes (or lineage markers) based on gene expression variability across lineages (either from predictions or from ground truth) from single-cell RNA-sequencing data.
 }
 \usage{
-memory_gene_calling(GEMLI_items, valid_lineage_sizes=2:5, use_median=T, use_barcodes=F)
+memory_gene_calling(GEMLI_items, valid_lineage_sizes=2:5, use_median=T, ground_truth=F)
 }
 \arguments{
   \item{
@@ -21,7 +21,7 @@ memory_gene_calling(GEMLI_items, valid_lineage_sizes=2:5, use_median=T, use_barc
   use_median}{'use_median' specifies whether the median of lineages should be used rather than the mean. This makes the approach more robust to outliers. Default is 'true'/'T'.
   }
   \item{
-  use_barcodes}{'use_barcodes' specifies whether to call memory genes on barcodes instead of predictions. Default is 'false'/'F'.
+  use_barcodes}{'ground_truth' specifies whether to call memory genes on ground truth instead of predictions. Default is 'false'/'F'.
   }
   \item{
   cell_fate}{'cell_fate', when present, specifies to call memory genes on specific symmetric or asymmetric lineages. It is a vector of the 'cell.fate' in the 'cell_fate_analysis' GEMLI_items element of the lineages to be used for memory gene calling. Cell fates start with sym or asym, followed by the cell type, separated by an underscore. 
