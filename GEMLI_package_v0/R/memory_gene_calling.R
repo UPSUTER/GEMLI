@@ -1,4 +1,4 @@
-memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_median=T, use_barcodes=F, cell_fate)
+memory_gene_calling <- function(GEMLI_items, valid_lineage_sizes=(2:5), use_median=T, ground_truth=F, cell_fate)
 {
   markers_by_cvsq_of_lineage_means <- function(data_matrix, lineage_dict, valid_lineage_sizes=(2:5), use_median=T)
   {
