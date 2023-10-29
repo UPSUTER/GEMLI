@@ -13,7 +13,7 @@ test_lineages(GEMLI_items)
 lineage_predictions_matrix, lineage_dict_bc, valid_fam_sizes=(1:5), max_interval=100, plot_results=F)
 \arguments{
   \item{
-  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'test_lineages' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'. It also needs to contain a ground truth names 'barcodes' provided as either a named vector (values are the lineages and names are the cell IDs).
+  GEMLI_items}{'GEMLI_items' is a list of GEMLI inputs and outputs. To run 'test_lineages' it should contain a prediction matrix named 'prediction' that is generated and added to the items list by the function 'predict lineages'. It also needs to contain a ground truth names 'barcodes' provided as a named vector (values are the lineages and names are the cell IDs).
   }
   \item{
   valid_fam_sizes}{'valid_fam_sizes' specifies a resonable range for lineage sizes.
