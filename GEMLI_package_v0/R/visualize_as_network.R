@@ -1,4 +1,4 @@
-visualize_as_network <- function(GEMLI_items, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=T, layout_style='fr', cell_type_colors=F)
+visualize_as_network <- function(GEMLI_items, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=F, layout_style='fr', cell_type_colors=F)
 {
   par(mar=c(0,0,2,0))
   if (cell_type_colors) {layout(mat = matrix(c(1, 2, 3, 0), nrow = 2, ncol = 2), heights = c(3, 1), widths = c(3,1))} else {layout(mat = matrix(c(1, 2), nrow = 2, ncol = 1), heights = c(3, 1))}
