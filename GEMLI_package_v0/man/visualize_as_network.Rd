@@ -8,7 +8,7 @@ visualize_as_network
 This function visualizes the lineage prediction as a network.
 }
 \usage{
-visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_width=5, ground_truth=F, include_labels=F, highlight_FPs=T, layout_style="fr", cell_type_colors=F)
+visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_width=5, ground_truth=F, include_labels=F, highlight_FPs=F, layout_style="fr", cell_type_colors=F)
 }
 \arguments{
   \item{
@@ -30,7 +30,7 @@ visualize_as_network(GEMLI_items, cutoff=70, display_orphan=F, max_edge_width=5,
   ground_truth}{If the 'GEMLI_items' list contains a 'barcodes' vector with orthogonal lineage information 'ground_truth' can be set 'true'/'T' to color cells according to their lineage. Default is 'false'/'F'.
   }
   \item{
-  highlight_FPs}{If the 'GEMLI_items' list contains a 'barcodes' vector with orthogonal lineage information and 'ground_truth' is 'true'/'T' connections between cell that are false positives will be highlighted in red. It can be set tp 'false'/'F' to not highlight false predictions. Default is 'true'/'T'.
+  highlight_FPs}{If the 'GEMLI_items' list contains a 'barcodes' vector with orthogonal lineage information and 'ground_truth' is 'true'/'T' connections between cell that are false positives will be highlighted in red. It can be set tp 'false'/'F' to not highlight false predictions. Default is 'false'/'F'.
   }
   \item{
   layout_style}{Depending on the number of cells, and the size of lineages, different layout styles can improve readability. Currently three different network layout algorithms canbe chosen: Fruchterman-Reingold ("fr"), Kamada-Kawai ("kk"), and grid ("grid"). Default is "fr".
