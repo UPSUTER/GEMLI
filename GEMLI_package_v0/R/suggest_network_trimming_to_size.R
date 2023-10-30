@@ -1,4 +1,4 @@
-suggest_network_trimming_to_size <- function(GEMLI_items, max_size=4, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=T, ground_truth=F, layout_style="fr")
+suggest_network_trimming_to_size <- function(GEMLI_items, max_size=4, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, layout_style="fr")
 {
   lineage_predictions_matrix_original = GEMLI_items[["prediction"]]
   predicted_lineages_original = GEMLI_items[["predicted_lineages"]]
