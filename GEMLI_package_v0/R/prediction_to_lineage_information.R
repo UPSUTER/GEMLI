@@ -1,5 +1,5 @@
 library(igraph)
-prediction_to_lineage_information <- function(GEMLI_items, cutoff) # check
+prediction_to_lineage_information <- function(GEMLI_items, cutoff, output_as_dict=T) # check
 {
   lineage_predictions_matrix = GEMLI_items[["prediction"]]
   network = (lineage_predictions_matrix >= cutoff)
