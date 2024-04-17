@@ -90,6 +90,7 @@ The `test_lineage_prediction` function again takes our `GEMLI_items` as input. I
 
 ### Visualize predictions as network
 We can also investigate our predictions by visualizing them as a network with the `visualize_as_network` function. Here we need to set a `cutoff` that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predictions with lower precision.
+Network visualization requires the `igraph` library which can be loaded with `library(igraph)`.
 
 ```
 > visualize_as_network(GEMLI_items, cutoff=90) # top image
