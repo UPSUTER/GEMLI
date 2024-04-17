@@ -7,7 +7,7 @@ potential_markers <- function(data_matrix) # check
   variation_residuals = residuals(linear_fit)
   means = means[filter]
   mean_quantiles = quantile(means, seq(0.01,1,0.01))
-  variation_quantiles = quantile(variation, seq(0.01,1,0.01))
+  variation_quantiles = quantile(variation_residuals, seq(0.01,1,0.01))
   memory_genes = names(which((means>=mean_quantiles[98]) | (means>=mean_quantiles[90] & variation_residuals>=variation_quantiles[40]) | (means>=mean_quantiles[80] & variation_residuals>=variation_quantiles[80]) |(means>=mean_quantiles[60] & variation_residuals>=variation_quantiles[90])))
   return(memory_genes)
 }
