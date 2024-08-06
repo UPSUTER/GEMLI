@@ -1,0 +1,187 @@
+* using log directory ‘//GEMLI_package_v1.Rcheck’
+* using R version 4.3.3 (2024-02-29)
+* using platform: aarch64-unknown-linux-gnu (64-bit)
+* R was compiled by
+    gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+    GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+* running under: Ubuntu 22.04.4 LTS
+* using session charset: UTF-8
+* checking for file ‘GEMLI_package_v1/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘GEMLI’ version ‘0.2.0’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘GEMLI’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Checking should be performed on sources prepared by ‘R CMD build’.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+DEG_volcano_plot: no visible binding for global variable ‘avg_log2FC’
+DEG_volcano_plot: no visible binding for global variable ‘p_val_adj’
+DEG_volcano_plot: no visible binding for global variable ‘change’
+DEG_volcano_plot: no visible binding for global variable ‘label’
+DEG_volcano_plot: no visible global function definition for
+  ‘geom_point’
+DEG_volcano_plot: no visible global function definition for ‘xlim’
+DEG_volcano_plot: no visible global function definition for
+  ‘scale_color_manual’
+DEG_volcano_plot: no visible global function definition for
+  ‘geom_vline’
+DEG_volcano_plot: no visible global function definition for
+  ‘geom_hline’
+DEG_volcano_plot: no visible global function definition for ‘labs’
+DEG_volcano_plot: no visible global function definition for ‘theme_bw’
+DEG_volcano_plot: no visible global function definition for ‘theme’
+DEG_volcano_plot: no visible global function definition for
+  ‘element_text’
+DEG_volcano_plot: no visible global function definition for
+  ‘element_blank’
+DEG_volcano_plot: no visible global function definition for
+  ‘geom_text_repel’
+calculate_correlations: no visible global function definition for
+  ‘fastCor’
+cell_fate_DEG_calling: no visible global function definition for
+  ‘CreateSeuratObject’
+cell_fate_DEG_calling: no visible global function definition for
+  ‘AddMetaData’
+cell_fate_DEG_calling: no visible global function definition for
+  ‘DefaultAssay<-’
+cell_fate_DEG_calling: no visible global function definition for
+  ‘Idents<-’
+cell_fate_DEG_calling: no visible global function definition for
+  ‘FindMarkers’
+cell_type_composition_plot: no visible global function definition for
+  ‘%>%’
+cell_type_composition_plot: no visible global function definition for
+  ‘group_by’
+cell_type_composition_plot: no visible global function definition for
+  ‘summarise’
+cell_type_composition_plot: no visible global function definition for
+  ‘n’
+cell_type_composition_plot: no visible binding for global variable
+  ‘cnt’
+cell_type_composition_plot: no visible binding for global variable
+  ‘percentage’
+cell_type_composition_plot: no visible global function definition for
+  ‘geom_point’
+cell_type_composition_plot: no visible global function definition for
+  ‘theme_classic’
+cell_type_composition_plot: no visible global function definition for
+  ‘scale_colour_manual’
+cell_type_composition_plot: no visible global function definition for
+  ‘fromList’
+cell_type_composition_plot: no visible global function definition for
+  ‘arrange’
+cell_type_composition_plot: no visible global function definition for
+  ‘summarize’
+cell_type_composition_plot: no visible global function definition for
+  ‘count’
+cell_type_composition_plot: no visible binding for global variable
+  ‘combi’
+extract_cell_fate_lineages: no visible global function definition for
+  ‘%>%’
+extract_cell_fate_lineages: no visible global function definition for
+  ‘group_by’
+extract_cell_fate_lineages: no visible binding for global variable
+  ‘clone.ID’
+extract_cell_fate_lineages: no visible global function definition for
+  ‘case_when’
+extract_cell_fate_lineages: no visible binding for global variable
+  ‘cell.fate’
+extract_cell_fate_lineages: no visible global function definition for
+  ‘n’
+extract_cell_fate_lineages: no visible binding for global variable
+  ‘cell.type’
+extract_cell_fate_lineages: no visible binding for global variable
+  ‘cnt’
+predict_lineages_multiple_sizes: no visible global function definition
+  for ‘progress’
+suggest_network_trimming_to_size: no visible global function definition
+  for ‘layout.fruchterman.reingold’
+suggest_network_trimming_to_size: no visible global function definition
+  for ‘layout.kamada.kawai’
+visualize_as_network: no visible global function definition for
+  ‘plot.igraph’
+visualize_as_network: no visible global function definition for
+  ‘layout.fruchterman.reingold’
+visualize_as_network: no visible global function definition for
+  ‘layout.kamada.kawai’
+visualize_as_network: no visible global function definition for
+  ‘layout.grid’
+Undefined global functions or variables:
+  %>% AddMetaData CreateSeuratObject DefaultAssay<- FindMarkers
+  Idents<- arrange avg_log2FC case_when cell.fate cell.type change
+  clone.ID cnt combi count element_blank element_text fastCor fromList
+  geom_hline geom_point geom_text_repel geom_vline group_by label labs
+  layout.fruchterman.reingold layout.grid layout.kamada.kawai n
+  p_val_adj percentage plot.igraph progress scale_color_manual
+  scale_colour_manual summarise summarize theme theme_bw theme_classic
+  xlim
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking LazyData ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking files in ‘vignettes’ ... WARNING
+Files in the 'vignettes' directory but no files in 'inst/doc':
+  ‘Example1_simple_lineage_predictions.Rmd’
+  ‘Example2_predicting_multicellular_structures.Rmd’
+  ‘Example3_cell_fate_analysis.Rmd’
+Package has no Sweave vignette sources and no VignetteBuilder field.
+* checking examples ... OK
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+* checking PDF version of manual without index ... ERROR
+Re-running with no redirection of stdout/stderr.
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX .
+Creating pdf output from LaTeX ...
+Warning in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  :
+  texi2dvi script/program not available, using emulation
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  pdflatex is not available
+Warning in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  :
+  texi2dvi script/program not available, using emulation
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  pdflatex is not available
+Error in running tools::texi2pdf()
+You may want to clean up by 'rm -Rf /tmp/RtmpOsxbii/Rd2pdfa5a0525d1'
+* DONE
+
+Status: 1 ERROR, 2 WARNINGs, 2 NOTEs
+See
+  ‘//GEMLI_package_v1.Rcheck/00check.log’
+for details.
+

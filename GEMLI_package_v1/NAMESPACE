@@ -1,0 +1,11 @@
+importFrom(igraph, "clusters", "plot.igraph", "edge_attr", "layout.fruchterman.reingold", "layout.kamada.kawai", "layout.grid")
+importFrom(graphics, "axis", "layout", "legend", "mtext", "par", "title")
+importFrom(methods, "hasArg")
+importFrom(stats, "as.dist", "cutree", "hclust", "lm", "loess", "loess.control", "quantile", "residuals", "sd")
+importFrom(UpSetR, "upset", "fromList")
+importFrom(ggplot2, "ggplot", "aes", "geom_line", "geom_point", "theme_classic", "theme", "theme_bw", "scale_colour_manual", "geom_vline", "geom_hline", "labs")
+importFrom(tidyr, "spread", "gather")
+importFrom(reshape, "cast")
+import(dplyr)
+
+exportPattern("^[[:alpha:]]+")
