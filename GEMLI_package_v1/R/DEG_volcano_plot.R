@@ -4,7 +4,7 @@ DEG$change = ifelse(DEG$p_val_adj <= 0.05 & abs(DEG$avg_log2FC) >= 0.5, ifelse(D
 DEG$label=rownames(DEG)
 plt<-ggplot(data = DEG, aes(x = avg_log2FC , y = -log10(p_val_adj), colour=change, label=label)) +
   ggplot2::geom_point(alpha=0.4, size=3.5)+
-  xlim(c(-4.5, 4.5)) +
+  ggplot2::xlim(c(-4.5, 4.5)) +
   ggplot2::scale_color_manual(values=c("#5386BD", "darkred","grey"))+
   ggplot2::geom_vline(xintercept=c(-0.5,0.5),lty=4,col="black",lwd=0.8) +
   ggplot2::geom_hline(yintercept = 1.301,lty=4,col="black",lwd=0.8)+
@@ -13,6 +13,6 @@ plt<-ggplot(data = DEG, aes(x = avg_log2FC , y = -log10(p_val_adj), colour=chang
   ggplot2::theme(plot.title = element_text(hjust = 0.5),
         legend.position="right",
         legend.title = element_blank()) +
-  geom_text_repel(data = subset(DEG, avg_log2FC >= 0.5 | avg_log2FC < -0.5), aes(label = label), max.overlaps = 15)
+  ggrepel::geom_text_repel(data = subset(DEG, avg_log2FC >= 0.5 | avg_log2FC < -0.5), aes(label = label), max.overlaps = 15)
 suppressWarnings(print(plt))
 }

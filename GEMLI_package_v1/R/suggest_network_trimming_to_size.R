@@ -1,10 +1,17 @@
 suggest_network_trimming_to_size <- function(GEMLI_items, max_size=4, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, layout_style="fr")
 {
+    if (class(GEMLI_items)=='list') {
+        barcodes = GEMLI_items[['barcodes']]
+    } else if (class(GEMLI_items)=='GEMLI') {
+        barcodes = GEMLI_items@barcodes
+    } else {
+        stop('Object GEMLI_items should be either of class list or GEMLI')
+    }
   lineage_predictions_matrix_original = GEMLI_items[["prediction"]]
   predicted_lineages_original = GEMLI_items[["predicted_lineages"]]
   GEMLI_items_in_trimming = GEMLI_items
   predicted_lineages = prediction_to_lineage_information(GEMLI_items, cutoff, output_as_dict=T)$predicted_lineages
-  if (ground_truth) {lineage_dict = GEMLI_items[['barcodes']]} else {lineage_dict = prediction_to_lineage_information(GEMLI_items, cutoff, output_as_dict=T)$predicted_lineages}
+  if (ground_truth) {lineage_dict = barcodes} else {lineage_dict = prediction_to_lineage_information(GEMLI_items, cutoff, output_as_dict=T)$predicted_lineages}
   while (sum(table(GEMLI_items_in_trimming$predicted_lineages)>max_size)!=0)
   { predicted_lineages = GEMLI_items_in_trimming$predicted_lineages; 
     lineage_predictions_matrix = GEMLI_items_in_trimming$prediction
@@ -40,7 +47,7 @@ suggest_network_trimming_to_size <- function(GEMLI_items, max_size=4, cutoff=70,
       edge_width = edge_width * (max_edge_width*0.9); max(edge_width); min(edge_width); edge_width = edge_width + (max_edge_width*0.1); max(edge_width); min(edge_width)
       if (!include_labels) {network_graph = igraph::set.vertex.attribute(network_graph, "name", value=rep("",ncol(network_edges)))}
       if (layout_style=='fr') {igraph::plot.igraph(network_graph, vertex.size=3, vertex.label.cex=0.5, layout=igraph::layout.fruchterman.reingold(network_graph), vertex.color=vertex_color, vertex.label.color="black", vertex.label.family="Arial", edge.color=edge_color, rescale=TRUE, edge.width=edge_width, vertex.label.dist=0.5, vertex.label.degree=pi*1.5)}
-      if (layout_style=='kk') {igraph::plot.igraph(network_graph, vertex.size=3, vertex.label.cex=0.5, layout=igrpah::layout.kamada.kawai(network_graph), vertex.color=vertex_color, vertex.label.color="black", vertex.label.family="Arial", edge.color=edge_color, rescale=TRUE, edge.width=edge_width, vertex.label.dist=0.5, vertex.label.degree=pi*1.5)}
+      if (layout_style=='kk') {igraph::plot.igraph(network_graph, vertex.size=3, vertex.label.cex=0.5, layout=igraph::layout.kamada.kawai(network_graph), vertex.color=vertex_color, vertex.label.color="black", vertex.label.family="Arial", edge.color=edge_color, rescale=TRUE, edge.width=edge_width, vertex.label.dist=0.5, vertex.label.degree=pi*1.5)}
       # Title
       title(main = paste0("Prediction at confidence level ", cutoff, "\nsuggested trimming to size ", max_size, "\n"))
       # Edge_color_and_width

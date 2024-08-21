@@ -1,7 +1,14 @@
 test_lineages <- function(GEMLI_items, valid_fam_sizes=(1:5), max_interval=100, plot_results=F)
 {
-  lineage_predictions_matrix = GEMLI_items[['prediction']]
-  lineage_dict_bc = GEMLI_items[['barcodes']]
+    if (class(GEMLI_items)=='list') {
+        lineage_predictions_matrix = GEMLI_items[['prediction']]
+        lineage_dict_bc = GEMLI_items[['barcodes']]
+    } else if (class(GEMLI_items)=='GEMLI') {
+        lineage_predictions_matrix = GEMLI_items@prediction
+        lineage_dict_bc = GEMLI_items@barcodes
+    } else {
+        stop('Object GEMLI_items should be either of class list or GEMLI')
+    }
   valid_family_dict = lineage_dict_bc[as.character(lineage_dict_bc) %in% names(table(lineage_dict_bc))[table(lineage_dict_bc) %in% valid_fam_sizes]]
   cell_with_annotation = intersect(rownames(lineage_predictions_matrix), names(valid_family_dict))
   family_dict_filt = valid_family_dict[cell_with_annotation]

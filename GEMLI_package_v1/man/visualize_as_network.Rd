@@ -8,7 +8,7 @@ visualize_as_network
 This function visualizes the lineage prediction as a network.
 }
 \usage{
-visualize_as_network(GEMLI_items, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=F, layout_style="fr", cell_type_colors=F)
+visualize_as_network(GEMLI_items, cutoff=70, max_edge_width=5, display_orphan=F, include_labels=F, ground_truth=F, highlight_FPs=F, layout_style="fr", cell_type_colors=F, title.cex=1, legend.cex=1)
 }
 \arguments{
   \item{
@@ -37,6 +37,12 @@ visualize_as_network(GEMLI_items, cutoff=70, max_edge_width=5, display_orphan=F,
   }
     \item{
   cell_type_colors}{'cell_type_colors' can be set 'true'/'T' to color cells by assigned cell type. For such coloring the GEMLI items list must contain a cell_type element (dataframe with column 'cell.ID' and 'cell.type'). Specific colors will be assigned to specific cell types if a GEMLI items list elemnt 'cell_type_color' is added (dataframe with column 'cell-type' and 'color'). If no 'cell_type_color' element is present, random colors will be assigned to each cell type. Default is cell_type_colors = 'F'.
+  }
+    \item{
+  title.cex}{'title.cex' Character expansion for title size.
+  }
+    \item{
+  legend.cex}{'legend.cex' Character expansion for legend size.
   }
 }
 \value{

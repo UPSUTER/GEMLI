@@ -21,7 +21,7 @@ RUN R -e "install.packages('remotes', repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages('Seurat')"
 
 # Copy the local GEMLI package directory to the Docker image and install the GEMLI package from the local directory
-COPY GEMLI_package_v1 /opt/GEMLI_package_v1
+COPY GEMLI_package_v1 /opt/GEMLI_package_v1 
 RUN R -e "remotes::install_local('/opt/GEMLI_package_v1')"
 
 # Install the GEMLI package from the specified subdirectory on GitHub

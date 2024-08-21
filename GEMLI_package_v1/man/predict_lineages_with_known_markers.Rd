@@ -8,7 +8,7 @@ predict_lineages_with_known_markers
 This function predicts cell lineages from from single-cell RNA-sequencing data when lineage markers are already knwon, e.g. from a barcoding experiment. Subsets of these genes are used to cluster cells until the desired cluster size is reached. This clustering is repeated many times for random subsets. The result is a cell by cell matrix that lists how many times each cell pair clustered together which translates into a confidence score. Cell pairs with high confidence scores are likely to be members of the same lineage.
 }
 \usage{
-predict_lineages_with_known_markers(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3), fast=FALSE)
+predict_lineages_with_known_markers(GEMLI_items, repetitions=100, sample_size=(2/3), desired_cluster_size=c(2,3))
 }
 \arguments{
   \item{
@@ -22,9 +22,6 @@ predict_lineages_with_known_markers(GEMLI_items, repetitions=100, sample_size=(2
   }
   \item{
   desired_cluster_size}{'desired_cluster_size' specifies the number of cells per cluster to be achieved in each clustering. The input is a lsit of values, e.g. c(2,3,4) or (2:4). The desired_cluster_size parameter should generally be small. Values between 2 and 4 are recommended (default).
-  }
-  \item{
-  fast}{'fast' =TRUE uses the HiClimR package for calculating correlations. This makes predictions faster but reduces precision. The default value is FALSE.
   }
 }
 \value{

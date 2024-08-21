@@ -9,7 +9,10 @@ Description: Uses general characteristics of genes with lineage-specific express
 URL: https://github.com/UPSUTER/GEMLI
 Depends: R (>= 4.3.3)
 Imports: 
-    parallel,
+    Matrix,
+    matrixStats,
+    fastcluster,
+    ggrepel,
     methods,
     igraph (>= 2.0.3),
     reshape (>= 0.8.9),
