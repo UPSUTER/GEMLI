@@ -1,0 +1,27 @@
+# Use the official R base image
+FROM rocker/r-ver:4.3.3
+
+# Install necessary system dependencies for R packages
+RUN apt-get update && apt-get install -y \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev \
+    git \
+    libnetcdf-dev \
+    netcdf-bin \
+    libpng-dev \
+    libfontconfig1-dev \
+    libfreetype6-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install remotes package to enable installation from GitHub
+RUN R -e "install.packages('remotes', repos='https://cloud.r-project.org/')"
+
+# Install the GEMLI package from the specified subdirectory on GitHub
+RUN R -e "remotes::install_github('UPSUTER/GEMLI', subdir = 'GEMLI_package_v0')"
+
+# Verify the installation
+RUN R -e "library(GEMLI)"
+
+# Set the command to R console
+CMD ["R"]
