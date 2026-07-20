@@ -9,7 +9,9 @@ Simply run `library(devtools)` and then `install_github("UPSUTER/GEMLI", subdir=
 
 
 ## Development and feedback
-We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore existing functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! Contact: marcel.tarbier@scilifelab.se or almut.eisele@unige.ch 
+We are still working to make GEMLI more intuitive, user-friendly, faster and versatile. Therefore existing functions will still be updated and new functionalities will be added. We'll publish a list of changes for each version for you to keep track. Your feedback is very welcome and will help us make GEMLI even better. What do you like about GEMLI? Something not working? What functions are you missing? Let us know! 
+
+Currently maintained by almut.eisele@unige.ch 
 
 ## Example 1: small lineages in mouse embryonic stem cells
 
