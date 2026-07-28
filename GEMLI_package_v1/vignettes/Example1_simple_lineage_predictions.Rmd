@@ -1,0 +1,104 @@
+---
+title: "Example1_simple_lineage_predictions"
+output: html_vignette
+date: "2023-06-02"
+vignette: >
+  %\VignetteIndexEntry{Example1_simple_lineage_predictions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+
+---
+
+```{r, echo = FALSE, message=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+
+For our first example we'll be looking at mouse embryonic stem cells that have been barcoded and cultured for 48h. We'll be working with a subset of this data for fast processing. In our subset we find 'family sizes' ranging from just two up to five related cells.
+
+## Load package and example data
+
+First we load the example data.
+
+```{r, eval=T, echo=T}
+library(GEMLI)
+library(igraph)
+library(HiClimR)
+
+load('GEMLI_example_data_matrix.RData')
+load('GEMLI_example_barcode_information.RData')
+
+```
+
+## Create a GEMLI items list
+
+GEMLI's inputs and outputs are stored in a list of objects with predefined names. To run GEMLI you need at least a quality controlled and normalized gene expression matrix (rows = genes/features, colums = cells/samples). In this example we also provide a ground truth for lineages stemming from a barcoding experiment (values = barcode ID, names = cell IDs).
+
+```{r, eval=T, echo=T}
+# Making GEMLI list and storing data
+GEMLI_items = list()
+GEMLI_items[['gene_expression']] = data_matrix
+GEMLI_items[['barcodes']] = lineage_dict_bc
+
+# A brief look at the loaded data
+GEMLI_items[['gene_expression']][9:14,1:5]
+GEMLI_items[['barcodes']][1:5]
+
+```
+
+## Perform lineage predictions
+
+We can then identify cell lineages through repeated iterative clustering (this may take 2-3min). The predict_lineages function takes our GEMLI_items as input. It outputs a matrix of all cells against all cells with values corresponding to a confidence score that they are part of the same lineage.
+
+```{r, eval=T, echo=T}
+# Perform lineage predictions
+GEMLI_items = predict_lineages(GEMLI_items)
+
+# A brief look at the result
+GEMLI_items[['prediction']][1:5,15:19]
+```
+
+## Test lineage prediction
+
+Since we have barcoding data for this dataset we can test the predicted lineages against our ground truth. The test_lineage_prediction function again takes our GEMLI_items as input. It's important that a predcition has been run first with predict_lineages. It outputs the number of true positive predictions (TP), false positive predictions (FP), as well as precision and sensitivity for various confidence intervals. The output can be visualized by setting plot_results to true/T.
+
+```{r, eval=T, echo=T, fig.height=6, fig.width=6}
+GEMLI_items = test_lineages(GEMLI_items)
+
+# A brief look at the resulting table
+GEMLI_items$testing_results
+
+# And a run with plotting of the result
+GEMLI_items = test_lineages(GEMLI_items, plot_results=T)
+```
+
+## Visualize predictions as network
+
+We can also investigate our predictions by visualizing them as a network with the visualize_as_network function. Here we need to set a cutoff that defines which predictions we want to consider. It represents a confidence score and high values yield fewer predictions with high precision while low values yield more predictions with lower precision.
+
+```{r, eval=T, echo=T, fig.height=6, fig.width=6}
+
+visualize_as_network(GEMLI_items, cutoff=90)
+visualize_as_network(GEMLI_items, cutoff=50)
+```
+
+
+If a ground truth e.g. from barcoding is avalable we can set ground_truth to true/T to highlight false predictions with red edges. Cells without barcode information will be displayed in white.
+
+```{r, eval=T, echo=T, fig.height=6, fig.width=6}
+visualize_as_network(GEMLI_items, cutoff=90, ground_truth=T)
+visualize_as_network(GEMLI_items, cutoff=50, ground_truth=T)
+```
+
+## Extract lineage information
+
+Now we can extract the lineage information with the prediction_to_lineage_information function. Again we need to set a cutoff that defines which predictions we want to consider. The function outputs both a lineage table and a 'dictionary', a vector that has the lineage number as values and the cell IDs as names.
+
+```{r, eval=T, echo=T}
+GEMLI_items = prediction_to_lineage_information(GEMLI_items, cutoff=50)
+
+# A brief look at the result
+GEMLI_items$predicted_lineage_table[1:5,]
+
+```
+

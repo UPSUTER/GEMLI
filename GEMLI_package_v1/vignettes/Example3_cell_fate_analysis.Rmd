@@ -1,0 +1,80 @@
+
+---
+title: "Example3_cell_fate_analysis"
+output: html_document
+date: "2023-06-05"
+vignette: >
+  %\VignetteIndexEntry{Example3_cell_fate_analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+For our third example we'll be looking at cell fate decisions in a scRNA-seq dataset of human breast cancer encompassing both ductal carcinoma in situ (DCIS) and invasive tumor (inv_tumor) cells. We'll be working with a subset of this data for fast processing. No ground truth is available. We will study the fate transition from DCIS to invasive tumor cells. The data is derived from a public 10X Genomics dataset associated to the following preprint bioRxiv 2022.10.06.510405; doi: https://doi.org/10.1101/2022.10.06.510405 and downloaded from https://www.10xgenomics.com/products/xenium-in-situ/preview-dataset-human-breast (April 2023).
+
+## Load example data
+
+First we load the example data. We already predicted the lineages and extracted the predicted lineages using GEMLI. Furthermore we load the previously generated cell type information for all cells in the dataset.
+
+```{r, eval=T, echo=T}
+library(GEMLI)
+library(igraph)
+library(HiClimR)
+library(dplyr)
+library(ggplot2)
+library(Seurat)
+library(ggrepel)
+
+load('GEMLI_cancer_example_norm_count.RData')
+load('GEMLI_cancer_example_predicted_lineages.RData')
+load('GEMLI_cancer_example_cell_type_annotation.RData')
+
+```
+
+
+## Create a GEMLI items list
+
+We then create a GEMLI items list. This list is used to store the data, and create and store the outputs of GEMLI (for details check example one).
+
+```{r, eval=T, echo=T}
+
+GEMLI_items = list()
+GEMLI_items[['gene_expression']] = Cancer_norm_count
+GEMLI_items[['predicted_lineage_table']] = Cancer_predicted_lineages
+GEMLI_items[['cell_type']] = Cancer_annotation
+
+```
+
+
+## Extract symmetric and asymmetric cell lineages
+
+We extract now predicted cell lineages with members in only one cell type (symmetric) or in two or more cell types (asymmetric). To analyze the transition from DCIS to invasive breast cancer we will extract symmetric DCIS, asymmetric DCIS and invasive tumor, and symmetric inv_tumor lineages. To exclude lineages with a too large asymmetry, we set a threshold to extract asymmetric lineages containing at least 10% of each cell type. The function output is stored in GEMLI_items 'cell_fate_analysis' item. It is a data frame with a column cell.fate with label sym or asym and cell type separated by an underscore. This cell.fate designation allows to subsequently analyze only a specific cell type in asymmetric cell lineages.
+
+```{r, eval=T, echo=T}
+
+GEMLI_items<-extract_cell_fate_lineages(GEMLI_items, selection=c("inv_tumor", "DCIS"), unique=FALSE, threshold=c(10,10))
+
+# A brief look at the result
+GEMLI_items[['cell_fate_analysis']][1:10,] 
+table(GEMLI_items[['cell_fate_analysis']]$cell.fate)
+
+```
+
+## Call and visualize DEG for cells in specific lineage types
+
+Based on the symmetric and asymmetric lineages we extracted, we will now call differentially expressed genes (DEG) specific for cells of specific cell types in specific lineages types. To analyze the transition from DCIS to invasive breast cancer, we notable call DEG for DCIS cells in asymmetric and symmetric lineages. These are genes specific to DCIS cells at the start of the transition.
+
+```{r, eval=T, echo=T}
+
+GEMLI_items<-cell_fate_DEG_calling(GEMLI_items, ident1="sym_DCIS", ident2="asym_DCIS", min.pct=0.05, logfc.threshold=0.1)
+
+# A brief look at the result
+GEMLI_items[['DEG']][1:10,] 
+
+# Volcano plot of the DEG analysis
+DEG_volcano_plot(GEMLI_items, name1="Sym_DCIS", name2="Asym_DCIS")
+
+```
